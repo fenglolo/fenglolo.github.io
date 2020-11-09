@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Mac通过命令行编辑保存文件</title>
+      <link href="2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/"/>
+      <url>2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p><strong>1.</strong> cd 文件所在目录</p><p><strong>2.</strong> vi 文件名.文件后缀</p><p><strong>3.</strong> 输入i，进入insert模式编辑文本</p><p><strong>4.</strong> esc退出插入模式</p><p><strong>5.</strong> shift + ：wq 保存文件并退出文本编辑模式</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android 内存泄漏「检测工具」之——LeakCanary2.0</title>
       <link href="2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/"/>
       <url>2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/</url>
