@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Mac AndroidStudio 中安装plantUML插件</title>
+      <link href="2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/"/>
+      <url>2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Mac版 AS 安装plantUML插件</strong></p><p>1、打开setting面板；<br>2、找到Plugins；<br>3、在搜索框中输入plantUML，进行搜索；<br><img src="https://img-blog.csdnimg.cn/20210113152500855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4、点击安装插件，并重启AS；<br>5、File双击 -&gt; New，就可以看到一个PlantUML File了。<br>6、新建一个PlantUML File格式的文件，就可以用代码来愉快的画图了。<br><img src="https://img-blog.csdnimg.cn/2021011315283237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><hr><p>PlantUML语法使用详见</p><p><a href="https://blog.csdn.net/fenglolo/article/details/112562026">https://blog.csdn.net/fenglolo/article/details/112562026</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</title>
       <link href="2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/"/>
       <url>2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/</url>
