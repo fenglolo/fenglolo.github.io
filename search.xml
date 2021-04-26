@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Android中EditText优先弹出数字输入法</title>
+      <link href="2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+      <url>2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Android中EditText优先弹出数字输入法"><a href="#Android中EditText优先弹出数字输入法" class="headerlink" title="Android中EditText优先弹出数字输入法"></a>Android中EditText优先弹出数字输入法</h2><p>当一个EditText使用数字的频率很高，比如用来输入手机号等等，但是有时候可能也需要使用到输入英文和汉字的需求。这个时候，我们默认当EditText弹出时，优化弹出数字键盘比较好。</p><p><strong>解决方案</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//默认直接显示数字键盘</span><br><span class="line">editText.setInputType(InputType.TYPE_CLASS_TEXT);</span><br><span class="line">editText.setRawInputType(InputType.TYPE_CLASS_NUMBER);</span><br></pre></td></tr></table></figure><p><strong>setInputType</strong>和<strong>setRawInputType</strong>的不同之处是：前者是输入内容限制，后者是改变输入法格式</p><hr><p>如果想限制输入的格式，比如只能输入“0123456789abc”这些字符，该怎么办呢？<br>这个时候就需要使用到setKeyListener属性。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//这里自定义过滤规则，比如只能输入0-9和小写abc</span><br><span class="line">String digits = <span class="string">&quot;0123456789abc&quot;</span>;</span><br><span class="line"></span><br><span class="line">editText.setInputType(InputType.TYPE_CLASS_TEXT);</span><br><span class="line">editText.setKeyListener(DigitsKeyListener.getInstance(digits));</span><br><span class="line">editText.setRawInputType(InputType.TYPE_CLASS_NUMBER);</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android 11 调用手机系统摄像头新策略 IMAGE_CAPTURE</title>
       <link href="2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/"/>
       <url>2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/</url>
