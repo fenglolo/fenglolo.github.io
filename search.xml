@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>TortoiseSVN 打Tags</title>
+      <link href="2021/06/03/TortoiseSVN-%E6%89%93Tags/"/>
+      <url>2021/06/03/TortoiseSVN-%E6%89%93Tags/</url>
+      
+        <content type="html"><![CDATA[<h2 id="TortoiseSVN打Tags"><a href="#TortoiseSVN打Tags" class="headerlink" title="TortoiseSVN打Tags"></a><strong>TortoiseSVN打Tags</strong></h2><blockquote><p>TortoiseSvn打Tag的坑：</p><ol><li>必须把svn上的代码拉到本地，然后在本地代码上“右键”选择brandh/tag。</li></ol></blockquote><p><strong>步骤：</strong></p><ol><li><p><strong>把svn上需要打Tag的代码拉到本地；</strong></p></li><li><p>进入代码目录，在想要打tag的文件夹上右键依次选择<br>“TortoiseSVN” —-&gt; “Branch/tag…”，如下所示：<br><img src="https://img-blog.csdnimg.cn/20210603162308203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p></li><li><p><strong>修改Tag目录</strong>：把Tag保存到自己需要的<strong>目录</strong>下。</p></li></ol><blockquote><p>注意：「该目录」必须在svn中存在，否则会报错。</p><ol><li>比如：保存目录为 ../code/trunk/tag/1.0/myProject<br>但是，svn中只有../code/trunk/tag，tag目录下并没有「1.0」这个目录，就会报错。</li></ol></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android Studio 引入aar文件</title>
       <link href="2021/05/25/Android-Studio-%E5%BC%95%E5%85%A5aar%E6%96%87%E4%BB%B6/"/>
       <url>2021/05/25/Android-Studio-%E5%BC%95%E5%85%A5aar%E6%96%87%E4%BB%B6/</url>
