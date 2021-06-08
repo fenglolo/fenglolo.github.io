@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>bash: ./gradlew: Permission denied 报错</title>
+      <link href="2021/06/08/bash-gradlew-Permission-denied-%E6%8A%A5%E9%94%99/"/>
+      <url>2021/06/08/bash-gradlew-Permission-denied-%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p><strong>问题：</strong></p><blockquote><p>在mac版的Android studio的Terminal命令行中执行./gradlew命令报错<br>bash: ./gradlew: Permission denied</p></blockquote><p><strong>解决方案</strong></p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x gradlew</span><br></pre></td></tr></table></figure><p>其实就是因为没有权限了，用ls -l查看是否有对应的平台的该执行文件是否有权限执行，如果没有权限的话可以执行</p><p><strong>chmod +x gradlew 或者 chmod 777 gradlew</strong></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>华为HMS Scankit 扫码SDK集成-实现扫一扫功能</title>
       <link href="2021/06/07/%E5%8D%8E%E4%B8%BAHMS-Scankit-%E6%89%AB%E7%A0%81SDK%E9%9B%86%E6%88%90-%E5%AE%9E%E7%8E%B0%E6%89%AB%E4%B8%80%E6%89%AB%E5%8A%9F%E8%83%BD/"/>
       <url>2021/06/07/%E5%8D%8E%E4%B8%BAHMS-Scankit-%E6%89%AB%E7%A0%81SDK%E9%9B%86%E6%88%90-%E5%AE%9E%E7%8E%B0%E6%89%AB%E4%B8%80%E6%89%AB%E5%8A%9F%E8%83%BD/</url>
