@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>TortoiseGit 使用教程 | 丰囖囖的博客</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">TortoiseGit 使用教程</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">TortoiseGit 使用教程</h1><div class="post-meta"><a href="/2021/06/09/TortoiseGit-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#comments" class="comment-count"></a><p><span class="date">Jun 09, 2021</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p>@[toc]</p>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　</p>
+<blockquote>
+<p>作为一个软件开发人员，不可能不知道Git。Git作为一个复杂的版本控制系统，命令之多，即使经常使用，一些命令也记不住，一般只记住几个常用的命令，不是所有使用Git命令行都是高效的。本教程不讲Git命令，而是先让你用上git，再去学习git。本教程应该称作TortoiseGit入门指南。因为下面要借助一个图形化的软件，TortoiseGit来操作git。用GUI（图形界面）再谈CLI（命令行），我相信这会更容易让人接受。</p>
+</blockquote>
+<p><strong>该文章转自</strong>：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/anayigeren/p/10177027.html">https://www.cnblogs.com/anayigeren/p/10177027.html</a></p>
+<hr>
+<h1 id="TortoiseGit-简介"><a href="#TortoiseGit-简介" class="headerlink" title="TortoiseGit 简介"></a>TortoiseGit 简介</h1><blockquote>
+<p>TortoiseGit 简称 tgit， 中文名海龟Git。TortoiseGit是一个开放的GIT版本控制系统的源客户端。</p>
+<p>TortoiseGit 支持Winxp/vista/win7/Win10，提供有中文版支持。</p>
+<p>TortoiseGit 可以恢复您的文件的旧版本，并研究如何以及合适改变了历史数据，谁改变了它。下面教程针对使用TortoiseGit<br>的用户。</p>
+</blockquote>
+<hr>
+<h1 id="下载安装Git及Tortoisegit"><a href="#下载安装Git及Tortoisegit" class="headerlink" title="下载安装Git及Tortoisegit"></a>下载安装Git及Tortoisegit</h1><ul>
+<li>环境安装，需要依次安装以下：<br><img src="https://img-blog.csdnimg.cn/20210609112010316.png" alt="在这里插入图片描述"></li>
+</ul>
+<p><strong>第1步：</strong> 下载Git，下载地址：<a target="_blank" rel="noopener" href="https://git-for-windows.github.io/">https://git-for-windows.github.io/</a><br><img src="https://img-blog.csdnimg.cn/20210609112134453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">             Git 安装过程不详述，可参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wj-1314/p/7993819.html">https://www.cnblogs.com/wj-1314/p/7993819.html</a><br><strong>第2步：</strong> 下载安装Tortoisegit及中文语言包（Tortoisegit及语言包<a target="_blank" rel="noopener" href="https://tortoisegit.org/download/">下载</a> ，Tortoisegit <a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/f3ad7d0f37a75d09c2345b6f.html">安装教程</a>）<br><img src="https://img-blog.csdnimg.cn/20210609112615759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h1 id="Tortoisegit-配置"><a href="#Tortoisegit-配置" class="headerlink" title="Tortoisegit 配置"></a>Tortoisegit 配置</h1><ul>
+<li><p><strong>第1步：</strong> 首先，请选定一个存放Git项目的目录，这样方便管理. 如: E:\Git，然后在资源管理器中打开：<br><img src="https://img-blog.csdnimg.cn/20210609112800498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>第2步：</strong> 在空白处点击鼠标右键，选择 –&gt; TortoiseGit –&gt; Settings，然后就可以看到配置界面：<br><img src="https://img-blog.csdnimg.cn/202106091128418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>第3步：</strong> 选中General，在右边的 Language中选择简体中文(当然,你也可以继续使用英文)。取消勾选升级检查的复选框，可能还需要指定 git.exe 文件的路径，如 “D:\Program Files\Git\bin”。完成后，点击应用，确定关闭对话框。<br><img src="https://img-blog.csdnimg.cn/20210609112920124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>第4步：</strong> 配置用户，用户作为你操作git的个人标识，进入设置，点选左边的Git标签，可以发现,右边可以配置用户的名字与Email信息. 如下图所示：<br><img src="https://img-blog.csdnimg.cn/20210609112952280.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>因为当前还没有本地项目,所以 “编辑本地 .git/config(L)” 按钮处于灰色不可用状态，
+如果在某个本地Git项目下打开配置对话框，那么这个按钮就可用,然后就可以编辑
+此项目的一些属性。
+点击 “编辑全局 .git/config(O)”按钮,会使用记事本打开全局配置文件，在全局配置文
+件中，在后面加上下面的内容（记住密码）:</code></pre>
+<blockquote>
+<p>[credential]<br>helper = store</p>
+</blockquote>
+<pre><code>完成后保存，关闭记事本，确定即可。
+
+则当你使用 HTTPS URL 方式推送项目到GitHub等在线仓库时，海龟git会记住你输
+入的用户名和密码（这里不是用户的姓名和Email哦），可以避免每次提交都要输入
+用户名和密码。（还有种方式，通过使用 SSH URL 来提交代码便可以一劳永逸了
+~~~）
+
+如果你编辑的是 本地 .git/config(L)，其实这个翻译为本地有点问题，应该叫局部，    
+也就是在某个项目下面设置，只对此项目有效，配置是一样的。</code></pre>
+</li>
+</ul>
+<hr>
+<h1 id="Tortoisegit-使用示例"><a href="#Tortoisegit-使用示例" class="headerlink" title="Tortoisegit 使用示例"></a>Tortoisegit 使用示例</h1><ul>
+<li><p><strong>克隆一个项目（分别从github仓库、自己搭建的gitblit 仓库上获取）</strong></p>
+<blockquote>
+<p>教程开始之前，补充一个知识点：</p>
+<p>本地仓库和远程git仓库的连接方式有两种：<strong>HTTPS</strong> 和 <strong>SSH</strong>，很多时候都是直接使用 HTTPS URL方式克隆项目到本地，当然也有有些人使用SSH URL克隆到本地。这两种方式的主要区别在于：</p>
+<p><strong>HTTPS</strong>：使用起来不用配置，对初学者来说会比较方便，只要复制HTTPS URL然后到git Bash里面直接用clone命令克隆到本地就好了，但是每次 fetch 和 push代码都需要输入账号和密码，这也是HTTPS方式的麻烦之处。<br><strong>SSH</strong>：使用SSH URL方式需要在克隆之前先配置和添加好SSH key，因此，如果你想要使用SSH url克隆的话，你必须是这个项目的拥有者。否则你是无法添加SSH key的，另外ssh默认是每次fetch和push代码都不需要输入账号和密码，如果你想要每次都输入账号密码才能进行fetch和push也可以另外进行设置。多数介绍Git的博客里面采用的都是https的方式作为案例，今天主要是记录如何配置并在海龟git中使用SSH方式来提交和克隆代码。</p>
+</blockquote>
+</li>
+<li><p><strong>第1步：</strong> 此处介绍通过SSH URL方式传输，使用之前需要先将本地的 SSH 公钥配置到 Git 服务器上。</p>
+<pre><code>先查看SSH Key。在C盘用户主目录用户目录下，看看有没有.ssh目录，如果有
+再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接
+到第2步。</code></pre>
+<p>  <img src="https://img-blog.csdnimg.cn/20210609142900600.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">    </p>
+<pre><code>如果没有上述文件，则需要创建一个SSH Key，在任意文件夹下点击右键，选择
+Git GUI Here。在弹出的程序中选择主菜单的【Help】→【Show SSH Key】：                            </code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609143544617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>如果没有Key，则点击“Generate Key”生成一个SSH Key：</code></pre>
+<p>  <img src="https://img-blog.csdnimg.cn/20210609143649549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>把生成的全部内容拷出来。
+
+如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub
+两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，
+id_rsa.pub是公钥，可以放心地告诉任何人。（其他创建SSH Key方式：通过Shell
+命令方式创建）</code></pre>
+</li>
+<li><p><strong>第2步：</strong> 把 SSH Key 填到Git 服务器的配置中。</p>
+<pre><code>GitHub服务器：登陆GitHub，【头像】→【Settings】→【SSH and GPG Keys】
+→【New SSH Key】，填入上一步的复制的SSHKey，然后【Add SSH Key】：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609143953526.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>Gitblit 服务器（自己搭建 Git 服务器，Gitblit的安装教程请看这里），登录 Gitblit账 
+户，在【头像】→【用户中心】→【SSH Keys】，填入上一步的复制的SSHKey，
+然后【添加】</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/2021060914413088.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送
+的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，
+就可以确认只有你自己才能推送。</code></pre>
+</li>
+<li><p><strong>第3步：</strong> 要克隆 GitHub 或 Gitblit 上的项目，先要获取对应远程存储库的路径（注意：此处使用 SSH URL 方式）：</p>
+<blockquote>
+<p><strong>GitHub仓库</strong>：从 GitHub项目页面上得到对应存储库的 giturl 路径：<br><img src="https://img-blog.csdnimg.cn/2021060914443068.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+<blockquote>
+<p><strong>Gitblit 仓库</strong>：在存储库页面这个位置得到存储库的 giturl 路径：<br><img src="https://img-blog.csdnimg.cn/20210609144517502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+</li>
+<li><p><strong>第4步：</strong> 在本地文件夹的空白位置处，右击鼠标，在菜单中选择【Git克隆】：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210609144851167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>把git 路径填写到URL，并选择本地文件目录，点击【确定】，弹出下载进度窗口。
+（服务器端至少要有一个文件，否则 pull的时候会报错 fatal: Couldn&#39;t find remote 
+ref HEAD）</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609144933427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>克隆成功，则在文件夹上就可以看到角标标识：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609145025285.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<hr>
+<h1 id="将代码提交到服务器"><a href="#将代码提交到服务器" class="headerlink" title="将代码提交到服务器"></a>将代码提交到服务器</h1><p>Git的使用类似TFS、SVN等源代码或者文件管理器，惯例的流程：<br><img src="https://img-blog.csdnimg.cn/20210609145407537.png" alt="在这里插入图片描述"></p>
+<ul>
+<li><p><strong>第1步：</strong> 改动，修改本地项目中的某些文件，如修改 README.md 内容，还可以增加一些文件， 如Hello.txt。</p>
+</li>
+<li><p><strong>第2步：</strong> 提交本地，在本地项目的空白处点击鼠标右键，选择 【Git提交(C) -&gt; “master”…】</p>
+<p><img src="https://img-blog.csdnimg.cn/20210609145509262.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>在弹出提交（Commit）对话框中完成提交说明信息，和选择需要提交的文件，可根
+据需要新建分支，然后点击 【提交】 按钮，将修改提交到本地仓库：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609145631886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>弹出提交进度窗口，提交成功后还需要“推送”将本地仓库的修改推送到远程仓库。</code></pre>
+<p> <img src="https://img-blog.csdnimg.cn/20210609145717782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li><p><strong>第3步：</strong> 同步拉取，在实际工作中，如果多人协作或者多个客户端进行修改，那么我们还要拉取别人推送到在线仓库的内容，所以在推送之前需要先执行同步拉取(Pull …)操作。<br>在本地仓库文件夹上【右击鼠标】→【Git同步】：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210609145833621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>打开Git同步窗口（包括常规操作及日志，同右击菜单快捷操作一样），点击【拉取
+(P)】，将远程分支拉取到本地：</code></pre>
+<p> <img src="https://img-blog.csdnimg.cn/20210609145921642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>如果服务器上的文件没有被修改过，就会直接提示已经更新到最新，那你就可以直
+接进行下一步“推送(H)”操作了：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609150008412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>反之，如果服务器上的文件被修改过了（本地文件修改前不是最新版本），就会提
+示冲突。先要解决冲突，然后再提交结果：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609151632383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>需要注意的是，和使用TFS、SVN的习惯一样，你在修改本地内容之前，最好先 拉
+取（pull）一下，减少冲突的可能。</code></pre>
+</li>
+<li><p><strong>第四步：</strong> 推送远程，将提交到本地仓库的修改推送到远程仓库，可以直接在提交成功后的提示窗口上点击【推送(H)…】，或者在Git同步窗口点击【推送(H)…】，鼠标右击的菜单上也有相应的快捷操作：选择 【TortoiseGit(T)】→【推送(H)…】</p>
+<pre><code>弹出推送(push)对话框：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609151833863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>一般保持默认,点击 “确定” 按钮
+
+然后弹出推送进度界面，可能要求你输入用户名，点击【确定】，然后要求输入密
+码，密码输入正确后，显示推送成功界面：</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210609154432437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>如果你按照上一小节Tortoisegit 配置的设置操作，则输入密码以后会记住密码。密
+码会明文保存在C:\Users\用户名\.git-credentials 这个文件中，请小心保存。</code></pre>
+</li>
+</ul>
+</div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/2021/06/08/bash-gradlew-Permission-denied-%E6%8A%A5%E9%94%99/" class="next">bash: ./gradlew: Permission denied 报错</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TortoiseGit-%E7%AE%80%E4%BB%8B"><span class="toc-text">TortoiseGit 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Git%E5%8F%8ATortoisegit"><span class="toc-text">下载安装Git及Tortoisegit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tortoisegit-%E9%85%8D%E7%BD%AE"><span class="toc-text">Tortoisegit 配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tortoisegit-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-text">Tortoisegit 使用示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%86%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">将代码提交到服务器</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/06/09/TortoiseGit-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TortoiseGit 使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/08/bash-gradlew-Permission-denied-%E6%8A%A5%E9%94%99/">bash: ./gradlew: Permission denied 报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/%E5%8D%8E%E4%B8%BAHMS-Scankit-%E6%89%AB%E7%A0%81SDK%E9%9B%86%E6%88%90-%E5%AE%9E%E7%8E%B0%E6%89%AB%E4%B8%80%E6%89%AB%E5%8A%9F%E8%83%BD/">华为HMS Scankit 扫码SDK集成-实现扫一扫功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/03/TortoiseSVN-%E6%89%93Tags/">TortoiseSVN 打Tags</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/Android-Studio-%E5%BC%95%E5%85%A5aar%E6%96%87%E4%BB%B6/">Android Studio 引入aar文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/Android-String%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">Android String字符串截取方法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/06/Mac-OS%E7%B3%BB%E7%BB%9F%E6%80%8E%E4%B9%88%E4%BF%AE%E6%94%B9mac%E5%9C%B0%E5%9D%80/">Mac OS系统怎么修改mac地址</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/29/Android-OkHttp%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%EF%BC%9Ajava-net-UnknownServiceException%EF%BC%9A-not-permitted-by-network-security-policy/">Android OkHttp请求报错：java.net.UnknownServiceException：..not permitted by network security policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/28/LitePal%E7%9A%84%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94Android%E5%BC%80%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/">LitePal的使用——Android开源数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/27/Android-Studio-%E4%BD%BF%E7%94%A8Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%8D/">Android Studio 使用Lambda表达式「详细配置」</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script></body></html>
