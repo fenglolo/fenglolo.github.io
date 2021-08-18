@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>Mac之——命令行快速入门 | 丰囖囖的博客</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Mac之——命令行快速入门</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Mac之——命令行快速入门</h1><div class="post-meta"><a href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/#comments" class="comment-count"></a><p><span class="date">Aug 18, 2021</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p>@[toc]</p>
+<hr>
+<h1 id="1-常用命令整理"><a href="#1-常用命令整理" class="headerlink" title="1.常用命令整理"></a>1.常用命令整理</h1><ul>
+<li>pwd:打印工作目录，也可叫做输出工作目录，英文全称：print working directory</li>
+<li>mkdir:创建目录，英文全称：make directory</li>
+<li>touch:创建空文件</li>
+<li>rmdir:删除路径</li>
+<li>rm:删除文件</li>
+<li>cd:更改目录</li>
+<li>ls:列出目录下的内容</li>
+<li>pushd:推入路径</li>
+<li>popd:弹出路径</li>
+<li>cp:复制</li>
+<li>mv:移动文件/重命名</li>
+<li>less:查看文件内容</li>
+<li>cat:显示文件内容</li>
+<li>find:寻找文件</li>
+<li>echo:打印一些参数</li>
+<li>exit:退出</li>
+<li>sudo:成为超级用户或root，英文全称：super user do</li>
+</ul>
+<hr>
+<h1 id="2-命令行实现及注意事项"><a href="#2-命令行实现及注意事项" class="headerlink" title="2.命令行实现及注意事项"></a>2.命令行实现及注意事项</h1><hr>
+<h2 id="pwd-打印工作目录"><a href="#pwd-打印工作目录" class="headerlink" title="pwd 打印工作目录"></a>pwd 打印工作目录</h2><blockquote>
+<p>当你键入太多命令，一下找不到自己现在所处于的路径时，pwd可以帮你很好的找到</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/832bef641b154aefb05215858360e446.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="mkdir-新建目录"><a href="#mkdir-新建目录" class="headerlink" title="mkdir 新建目录"></a>mkdir 新建目录</h2><blockquote>
+<p>新建目录，可以是以前没有的目录，也可以在已有的目录下追加新的目录，但是值得注意的是，只用mkdir不能同时创建父子目录，如下图中tmp11还没有存在的情况下，不能直接创建,tmp111,如需同时创建多层目录，可以使用mkdir -p</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/16b34e02ba814e9b8067a03bf0135628.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h2><blockquote>
+<p>创建空文件,注意这种方式不能用来创建文件夹</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/ee5ac6d66eee469f9c54f2694a60bb49.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="rmdir-删除路径"><a href="#rmdir-删除路径" class="headerlink" title="rmdir 删除路径"></a>rmdir 删除路径</h2><blockquote>
+<p>删除路径,值得注意的是，在删除路径的时候需要指定到它的上一级目录，要不会报错，如下图，指定到了tmp1,可以rmdir下面的tmp11,但是当目录退到tmp时，就不能删除tmp11了，如果遇到你确定是空目录但是它拒绝删除改目录时，可以键入rm -rf&lt; dir &gt;即可，其中dir 用实际的目录名替代就可以</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/294cbff217a144c6985cd97b12d27e15.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="rm-删除文件"><a href="#rm-删除文件" class="headerlink" title="rm 删除文件"></a>rm 删除文件</h2><blockquote>
+<p>删除文件</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/b18587c7acc54f9c9ac20f31106afed3.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="cd-更改目录"><a href="#cd-更改目录" class="headerlink" title="cd 更改目录"></a>cd 更改目录</h2><blockquote>
+<p>更改目录，其实也就是指定到对应的目录，这种指定不能跳跃式的，必须一步步的往下指定，如下图不能直接指定到tmp1,要先指定到tmp,在指定到tmp1,也可以直接cd tmp/tmp1 ,可以使用cd直接回到最开始目录，也可以使用cd ..回到上一层目录</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/83f7aa5b4ebd45e6be1f88f999dd5ece.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/9573b15512bd415692aa9b6522ce026f.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="ls-列出目录下的内容"><a href="#ls-列出目录下的内容" class="headerlink" title="ls 列出目录下的内容"></a>ls 列出目录下的内容</h2><blockquote>
+<p>列出目录下的内容</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/40784778894d4b1f8451d6a05664148a.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="pushd和popd"><a href="#pushd和popd" class="headerlink" title="pushd和popd"></a>pushd和popd</h2><blockquote>
+<p>pushd保存当前路径并转到一个新的路径<br>popd回到先前保存的路径</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/9d28ed91aff045798578bd1516b37274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h2><blockquote>
+<p>复制,如果是文件，可以直接复制，如果是复制整个文件夹，则用cp -r</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/515c7be50d824acbba6bd7be27f236f4.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="mv-移动文件-重命名"><a href="#mv-移动文件-重命名" class="headerlink" title="mv 移动文件/重命名"></a>mv 移动文件/重命名</h2><blockquote>
+<p>移动文件,换种说法就是重命名</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/714bb766b0b444edb70488a427940da8.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="less-查看文件内容"><a href="#less-查看文件内容" class="headerlink" title="less 查看文件内容"></a>less 查看文件内容</h2><blockquote>
+<p>查看文件内容，可以查询某个路径下的文件内容，查看后按q退出</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/3b4bf5521f954a43b0e068490efc39c2.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h2><blockquote>
+<p>显示文件内容</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/c6b3d56ec4a24a8aac53f6a49979c944.png" alt="在这里插入图片描述"></p>
+<hr>
+</div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/" class="next">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86"><span class="toc-text">1.常用命令整理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">2.命令行实现及注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd-%E6%89%93%E5%8D%B0%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-text">pwd 打印工作目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir-%E6%96%B0%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-text">mkdir 新建目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#touch-%E5%88%9B%E5%BB%BA%E7%A9%BA%E6%96%87%E4%BB%B6"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir-%E5%88%A0%E9%99%A4%E8%B7%AF%E5%BE%84"><span class="toc-text">rmdir 删除路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rm-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">rm 删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd-%E6%9B%B4%E6%94%B9%E7%9B%AE%E5%BD%95"><span class="toc-text">cd 更改目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ls-%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">ls 列出目录下的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pushd%E5%92%8Cpopd"><span class="toc-text">pushd和popd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp-%E5%A4%8D%E5%88%B6"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mv-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-text">mv 移动文件&#x2F;重命名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">less 查看文件内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat-%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">cat 显示文件内容</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/07/%E4%BD%BF%E7%94%A8shell%E5%91%BD%E4%BB%A4%E6%A0%A1%E9%AA%8CAndroid-apk%E7%9A%84%E7%AD%BE%E5%90%8D%E4%BF%A1%E6%81%AF%E3%80%81%E6%A0%A1%E9%AA%8Capk%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8v1v2v3v4%E7%AD%BE%E5%90%8D/">使用shell命令校验Android apk的签名信息、校验apk是否使用v1v2v3v4签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/25/x-%E4%B8%8E-x-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%95%B4%E7%90%86/">x++ 与 ++x 的区别整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/18/Android%E4%B8%AD%E7%9A%84MVP%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/">Android中的MVP模式学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/09/TortoiseGit-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TortoiseGit 使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/08/bash-gradlew-Permission-denied-%E6%8A%A5%E9%94%99/">bash: ./gradlew: Permission denied 报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/%E5%8D%8E%E4%B8%BAHMS-Scankit-%E6%89%AB%E7%A0%81SDK%E9%9B%86%E6%88%90-%E5%AE%9E%E7%8E%B0%E6%89%AB%E4%B8%80%E6%89%AB%E5%8A%9F%E8%83%BD/">华为HMS Scankit 扫码SDK集成-实现扫一扫功能</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script></body></html>
