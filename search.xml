@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</title>
+      <link href="2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/"/>
+      <url>2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>今天升级Android Studio 后，打算重新启动，却发现启动报错如下：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Missing essential plugin:</span><br><span class="line">org.jetbrains.android</span><br><span class="line">Please reinstall Android Studio from scratch.</span><br></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/2ccbde82232b4f76994a97a5118dfad8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBAZmVuZ2xvbG8=,size_45,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><blockquote><p>导致这个问题最主要的问题可能是版本不一致或插件等问题</p></blockquote><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h5 id="1、Windows版本Android-Studio下解决方案"><a href="#1、Windows版本Android-Studio下解决方案" class="headerlink" title="1、Windows版本Android Studio下解决方案"></a>1、Windows版本Android Studio下解决方案</h5><blockquote><p>如下图所示：<br>1、打开windows目录下该路径，其中AppData默认是隐藏文件，需要先打开查看隐藏文件；<br>2、打开 disabled_plugins.txt文件，删除文件中org.jetbrains开头的文件字样即可。</p></blockquote><p><img src="https://img-blog.csdnimg.cn/b4ea19e569f643fd9e63fcefbe8c3400.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_Q1NETiBAZmVuZ2xvbG8=,size_50,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><h5 id="2、Mac版本Android-Studio下解决方案"><a href="#2、Mac版本Android-Studio下解决方案" class="headerlink" title="2、Mac版本Android Studio下解决方案"></a>2、Mac版本Android Studio下解决方案</h5><blockquote><p>1、打开Mac下如下目录：/Users/apple/Library/Application Support/Google/AndroidStudio2020.3/disabled_plugins.txt。<br>其中：<br>（1）apple -&gt; 代表用户，AndroidStudio2020.3 -&gt; 代表使用的as版本<br>（2）Library -&gt; 指资源库，默认为隐藏文件不可见，需要打开查看隐藏文件。<br>2、打开该文件，如下图所示，删除引起问题的配置即可</p></blockquote><p>disabled_plugins.txt：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">com.vladsch.idea.multimarkdown</span><br><span class="line">org.jetbrains.kotlin</span><br></pre></td></tr></table></figure><p>我的项目本次报错为Kotlin插件引起的，所以只需要删除“org.jetbrains.kotlin”这行，然后重新启动Android Studio即可。<br>对应的如果你明确知道是因为哪个插件报错，删除对应插件配置即可。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</title>
       <link href="2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/"/>
       <url>2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/</url>
