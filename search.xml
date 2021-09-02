@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Android Studio 查看项目中jar包依赖关系 依赖树 父子级</title>
+      <link href="2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/"/>
+      <url>2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="命令行方法"><a href="#命令行方法" class="headerlink" title="命令行方法"></a>命令行方法</h1><ul><li>windos 版   </li></ul><blockquote><p>studio里命令行(Terminal)输入<br>gradlew -q app:dependencies</p></blockquote><ul><li>mac 版      <blockquote><p>输入 ./gradlew -q app:dependencies<br>或者 bash gradlew -q app:dependencies</p></blockquote></li></ul><blockquote><p>把输入打印到a.txt文件中：<br>bash gradlew -q app:dependencies &gt;&gt; a.txt</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</title>
       <link href="2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/"/>
       <url>2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/</url>
