@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Android项目迁移到 AndroidX</title>
+      <link href="2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/"/>
+      <url>2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用-Android-Studio-迁移现有项目"><a href="#使用-Android-Studio-迁移现有项目" class="headerlink" title="使用 Android Studio 迁移现有项目"></a>使用 Android Studio 迁移现有项目</h1><p>使用 Android Studio 3.2 及更高版本，您只需从菜单栏中依次选择 Refactor &gt; Migrate to AndroidX，即可将现有项目迁移到 AndroidX。</p><p>重构命令使用两个标记。默认情况下，这两个标记在 gradle.properties 文件中都设为 true：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Android 插件会使用对应的 AndroidX 库而非支持库。</span></span><br><span class="line">android.useAndroidX=<span class="literal">true</span></span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Android 插件会通过重写现有第三方库的二进制文件，自动将这些库迁移为使用 AndroidX。</span></span><br><span class="line">android.enableJetifier=<span class="literal">true</span></span><br></pre></td></tr></table></figure><hr><h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><blockquote><p>1、如果要迁移<strong>未使用任何第三方库</strong>但<strong>带有需要转换的依赖项</strong>的现有项目，可以将 android.useAndroidX 标记设置为true，并将 android.enableJetifier 标记设置为 false。</p></blockquote><blockquote><p>2、执行迁移之前，请先将应用更新到最新版本。 我们建议您将项目更新为使用支持库的最终版本：版本 28.0.0。 这是因为，1.0.0 版本的 AndroidX 工件是与支持库 28.0.0 工件等效的二进制文件。</p></blockquote><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>官方文档：<a href="https://developer.android.google.cn/jetpack/androidx/migrate?hl=zh-cn">迁移到 AndroidX</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android软键盘——InputMethodManager使用：显示、隐藏软键盘</title>
       <link href="2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/"/>
       <url>2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/</url>
