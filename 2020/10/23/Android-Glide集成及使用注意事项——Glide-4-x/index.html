@@ -1,38 +1,247 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>Android Glide集成及使用注意事项——Glide 4.x | 丰囖囖的博客</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Android Glide集成及使用注意事项——Glide 4.x</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Android Glide集成及使用注意事项——Glide 4.x</h1><div class="post-meta"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x/#comments" class="comment-count"></a><p><span class="date">Oct 23, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><h2 id="Glide-4-x集成及使用注意事项"><a href="#Glide-4-x集成及使用注意事项" class="headerlink" title="Glide 4.x集成及使用注意事项"></a>Glide 4.x集成及使用注意事项</h2><p><strong>前言</strong></p>
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Android Glide集成及使用注意事项——Glide 4.x - 丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Glide 4.x集成及使用注意事项前言
+原文请到lm...">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Android Glide集成及使用注意事项——Glide 4.x</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Android Glide集成及使用注意事项——Glide 4.x</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6292</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h2 id="Glide-4-x集成及使用注意事项"><a href="#Glide-4-x集成及使用注意事项" class="headerlink" title="Glide 4.x集成及使用注意事项"></a>Glide 4.x集成及使用注意事项</h2><p><strong>前言</strong></p>
 <p>原文请到<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f1f17f816d1d">lmz14大神</a>参考使用<br>更多用法请到<a target="_blank" rel="noopener" href="https://muyangmin.github.io/glide-docs-cn/doc/download-setup.html">官方指南</a>参考使用</p>
 <p><strong>一、集成</strong></p>
 <p><strong>1、project gradle</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">       mavenLocal()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">repositories</span> &#123;</span><br><span class="line">       <span class="function"><span class="title">mavenLocal</span>()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2、app gradle</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile &#39;com.android.support:support-v4:25.3.1&#39;</span><br><span class="line">compile &#39;com.github.bumptech.glide:glide:4.0.0&#39;</span><br><span class="line">annotationProcessor &#39;com.github.bumptech.glide:compiler:4.0.0&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">compile</span> &#x27;com.android.support:support-v<span class="number">4</span>:<span class="number">25</span>.<span class="number">3</span>.<span class="number">1</span>&#x27;</span><br><span class="line"><span class="attribute">compile</span> &#x27;com.github.bumptech.glide:glide:<span class="number">4</span>.<span class="number">0</span>.<span class="number">0</span>&#x27;</span><br><span class="line"><span class="attribute">annotationProcessor</span> &#x27;com.github.bumptech.glide:compiler:<span class="number">4</span>.<span class="number">0</span>.<span class="number">0</span>&#x27;</span><br></pre></td></tr></table></figure>
 <p><strong>3、混淆</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#glide4.0</span><br><span class="line">-keep public class * implements com.bumptech.glide.module.GlideModule</span><br><span class="line">-keep public class * extends com.bumptech.glide.AppGlideModule</span><br><span class="line">-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** &#123;</span><br><span class="line">  **[] $VALUES;</span><br><span class="line">  public *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># for DexGuard only</span><br><span class="line">-keepresourcexmlelements manifest&#x2F;application&#x2F;meta-data@value&#x3D;GlideModule</span><br><span class="line"></span><br><span class="line"># 从glide4.0开始，GifDrawable没有提供getDecoder()方法，</span><br><span class="line"># 需要通过反射获取gifDecoder字段值，所以需要保持GifFrameLoader和GifState类不被混淆</span><br><span class="line">-keep class com.bumptech.glide.load.resource.gif.GifDrawable$GifState&#123;*;&#125;</span><br><span class="line">-keep class com.bumptech.glide.load.resource.gif.GifFrameLoader &#123;*;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#glide4.0</span></span><br><span class="line">-keep public <span class="class"><span class="keyword">class</span> * <span class="title">implements</span> <span class="title">com</span>.<span class="title">bumptech</span>.<span class="title">glide</span>.<span class="title">module</span>.<span class="title">GlideModule</span></span></span><br><span class="line">-keep public <span class="class"><span class="keyword">class</span> * <span class="title">extends</span> <span class="title">com</span>.<span class="title">bumptech</span>.<span class="title">glide</span>.<span class="title">AppGlideModule</span></span></span><br><span class="line">-keep public <span class="class"><span class="keyword">enum</span> <span class="title">com</span>.<span class="title">bumptech</span>.<span class="title">glide</span>.<span class="title">load</span>.<span class="title">resource</span>.<span class="title">bitmap</span>.<span class="title">ImageHeaderParser</span>$** &#123;</span></span><br><span class="line">  **[] $VALUES;</span><br><span class="line">  public *;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># for DexGuard only</span></span><br><span class="line">-keepresourcexmlelements manifest/application/meta-data@value=GlideModule</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从glide4.0开始，GifDrawable没有提供getDecoder()方法，</span></span><br><span class="line"><span class="comment"># 需要通过反射获取gifDecoder字段值，所以需要保持GifFrameLoader和GifState类不被混淆</span></span><br><span class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">bumptech</span>.<span class="title">glide</span>.<span class="title">load</span>.<span class="title">resource</span>.<span class="title">gif</span>.<span class="title">GifDrawable</span>$<span class="title">GifState</span>&#123;*;</span>&#125;</span><br><span class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">bumptech</span>.<span class="title">glide</span>.<span class="title">load</span>.<span class="title">resource</span>.<span class="title">gif</span>.<span class="title">GifFrameLoader</span> &#123;*;</span>&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>4、在4.0中不用像3.X需要在AndroidManifest.xml配置GlideModule，而是通过注解继承AppGlideModule的子类来配置。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@GlideModule</span><br><span class="line">public class GlideConfiguration extends AppGlideModule &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void applyOptions(Context context, GlideBuilder builder) &#123;</span><br><span class="line">        &#x2F;&#x2F;自定义缓存目录，磁盘缓存给150M 另外一种设置缓存方式</span><br><span class="line">        builder.setDiskCache(new InternalCacheDiskCacheFactory(context, &quot;GlideImgCache&quot;, 150 * 1024 * 1024));</span><br><span class="line">        &#x2F;&#x2F;配置图片缓存格式 默认格式为8888</span><br><span class="line">        builder.setDefaultRequestOptions(RequestOptions.formatOf(DecodeFormat.PREFER_ARGB_8888));</span><br><span class="line">        ViewTarget.setTagId(R.id.glide_tag_id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 禁止解析Manifest文件</span><br><span class="line">     * 主要针对V3升级到v4的用户，可以提升初始化速度，避免一些潜在错误</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean isManifestParsingEnabled() &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GlideModule</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">GlideConfiguration</span> <span class="keyword">extends</span> <span class="title">AppGlideModule</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void applyOptions(<span class="type">Context</span> context, <span class="type">GlideBuilder</span> builder) &#123;</span><br><span class="line">        <span class="comment">//自定义缓存目录，磁盘缓存给150M 另外一种设置缓存方式</span></span><br><span class="line">        builder.setDiskCache(<span class="keyword">new</span> <span class="type">InternalCacheDiskCacheFactory</span>(context, <span class="string">&quot;GlideImgCache&quot;</span>, <span class="number">150</span> * <span class="number">1024</span> * <span class="number">1024</span>));</span><br><span class="line">        <span class="comment">//配置图片缓存格式 默认格式为8888</span></span><br><span class="line">        builder.setDefaultRequestOptions(<span class="type">RequestOptions</span>.formatOf(<span class="type">DecodeFormat</span>.<span class="type">PREFER_ARGB_8888</span>));</span><br><span class="line">        <span class="type">ViewTarget</span>.setTagId(<span class="type">R</span>.id.glide_tag_id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 禁止解析Manifest文件</span></span><br><span class="line"><span class="comment">     * 主要针对V3升级到v4的用户，可以提升初始化速度，避免一些潜在错误</span></span><br><span class="line"><span class="comment">     * @return</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public boolean isManifestParsingEnabled() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>二、使用</strong></p>
 <p><strong>1、基本用法</strong><br>多数情况下，使用Glide加载图片非常简单，一行代码足矣：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context)</span><br><span class="line">        .load(myUrl)</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Glide</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">        <span class="selector-class">.load</span>(<span class="selector-tag">myUrl</span>)</span><br><span class="line">        <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
 <p>取消加载同样很简单：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context).clear(imageView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context).clear(imageView);</span><br></pre></td></tr></table></figure>
 <p>尽管及时取消不必要的加载是很好的实践，但这并不是必须的操作。实际上，当 Glide.with() 中传入的 Activity 或 Fragment 实例销毁时，Glide 会自动取消加载并回收资源。</p>
 <p><strong>2、加载圆形图</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(this)</span><br><span class="line">        .load(R.mipmap.ic_splash_bg)</span><br><span class="line">        .apply(bitmapTransform(new CropCircleTransformation()))</span><br><span class="line">        .into(mImageHead);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(this)</span><br><span class="line">        .load(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>mipmap.ic_splash_bg)</span><br><span class="line">        .apply(bitmap<span class="constructor">Transform(<span class="params">new</span> CropCircleTransformation()</span>))</span><br><span class="line">        .into(mImageHead);</span><br></pre></td></tr></table></figure>
 <p><strong>3、模糊过滤</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(this)</span><br><span class="line">        .load(R.mipmap.ic_splash_bg)</span><br><span class="line">        .apply(bitmapTransform(new BlurTransformation( 25, 4)))</span><br><span class="line">        .into(mImageView);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(this)</span><br><span class="line">        .load(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>mipmap.ic_splash_bg)</span><br><span class="line">        .apply(bitmap<span class="constructor">Transform(<span class="params">new</span> BlurTransformation( 25, 4)</span>))</span><br><span class="line">        .into(mImageView);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>4、在 Application 模块中的使用</strong><br>在 Application 模块中，可创建一个添加有 @GlideModule 注解，继承自 AppGlideModule 的类。此类可生成出一个流式 API，内联了多种选项，和集成库中自定义的选项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.example.myapp;</span><br><span class="line"></span><br><span class="line">import com.bumptech.glide.annotation.GlideModule;</span><br><span class="line">import com.bumptech.glide.module.AppGlideModule;</span><br><span class="line"></span><br><span class="line">@GlideModule</span><br><span class="line">public final class MyAppGlideModule extends AppGlideModule &#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.annotation.<span class="type">GlideModule</span>;</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.module.<span class="type">AppGlideModule</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GlideModule</span></span><br><span class="line">public <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAppGlideModule</span> <span class="keyword">extends</span> <span class="title">AppGlideModule</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>生成的 API 默认名为 GlideApp ，与 AppGlideModule 的子类包名相同。在 Application 模块中将 Glide.with() 替换为 GlideApp.with()，即可使用该 API 去完成加载工作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GlideApp.with(context)</span><br><span class="line">  			 .load(myUrl)</span><br><span class="line">   			 .placeholder(placeholder)</span><br><span class="line"> 			 .fitCenter()</span><br><span class="line">			 .into(imageView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">GlideApp</span><span class="selector-class">.with</span>(<span class="selector-tag">context</span>)</span><br><span class="line">  			 <span class="selector-class">.load</span>(<span class="selector-tag">myUrl</span>)</span><br><span class="line">   			 <span class="selector-class">.placeholder</span>(<span class="selector-tag">placeholder</span>)</span><br><span class="line"> 			 <span class="selector-class">.fitCenter</span>()</span><br><span class="line">			 <span class="selector-class">.into</span>(<span class="selector-tag">imageView</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>三、注意事项</strong></p>
 <p><strong>1、使用GlideApp代替Glide，asBitmap、asGif、asDrawable、asFile都要放到load之前（glide3.7.0都是要在load之后调用）。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void loadImg(Context context,String url, ImageView imageView)&#123;</span><br><span class="line">        GlideApp.with(context)</span><br><span class="line">                	.asBitmap()</span><br><span class="line">                	.load(url)</span><br><span class="line">                	.placeholder(R.drawable.placeholder) &#x2F;&#x2F;设置资源加载过程中的占位符</span><br><span class="line">               	 	.into(imageView);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void load<span class="constructor">Img(Context <span class="params">context</span>,String <span class="params">url</span>, ImageView <span class="params">imageView</span>)</span>&#123;</span><br><span class="line">        <span class="module-access"><span class="module"><span class="identifier">GlideApp</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">                	.<span class="keyword">as</span><span class="constructor">Bitmap()</span></span><br><span class="line">                	.load(url)</span><br><span class="line">                	.placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.placeholder) <span class="comment">//设置资源加载过程中的占位符</span></span><br><span class="line">               	 	.into(imageView);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2、占位符.placeholder(R.drawable.placeholder)不能用.9图，占位图片和加载的目标图片会同时显示，只是目标图片会先显示缩略图，然后显示正常。</strong></p>
 <p><strong>3、加载gif图时，若调用dontAnimate()移除所有动画，gif就会加载失败。</strong></p>
 <p><strong>4、设置淡入淡出动画</strong><br>glide3.7.0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(context)</span><br><span class="line">                .load(url)</span><br><span class="line">                .crossFade(100)  &#x2F;&#x2F;系统渐变动画</span><br><span class="line">                .placeholder(R.drawable.placeholder)</span><br><span class="line">                .fallback(R.drawable.fallback) </span><br><span class="line">                .diskCacheStrategy(DiskCacheStrategy.ALL)  </span><br><span class="line">                .into(imageView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Glide</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">                .load(url)</span><br><span class="line">                .cross<span class="constructor">Fade(100)</span>  <span class="comment">//系统渐变动画</span></span><br><span class="line">                .placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.placeholder)</span><br><span class="line">                .fallback(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.fallback) </span><br><span class="line">                .disk<span class="constructor">CacheStrategy(DiskCacheStrategy.ALL)</span>  </span><br><span class="line">                .into(imageView);</span><br></pre></td></tr></table></figure>
 <p>glide4.0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GlideApp.with(context)</span><br><span class="line">                .load(url)</span><br><span class="line">                .transition(DrawableTransitionOptions.withCrossFade(100))&#x2F;&#x2F;淡入淡出100m</span><br><span class="line">                .placeholder(R.drawable.placeholder)</span><br><span class="line">                .fallback(R.drawable.fallback) </span><br><span class="line">                .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">                .into(imageView);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">GlideApp</span>.</span></span><span class="keyword">with</span>(context)</span><br><span class="line">                .load(url)</span><br><span class="line">                .transition(<span class="module-access"><span class="module"><span class="identifier">DrawableTransitionOptions</span>.</span></span><span class="keyword">with</span><span class="constructor">CrossFade(100)</span>)<span class="comment">//淡入淡出100m</span></span><br><span class="line">                .placeholder(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.placeholder)</span><br><span class="line">                .fallback(<span class="module-access"><span class="module"><span class="identifier">R</span>.</span></span>drawable.fallback) </span><br><span class="line">                .disk<span class="constructor">CacheStrategy(DiskCacheStrategy.ALL)</span></span><br><span class="line">                .into(imageView);</span><br></pre></td></tr></table></figure>
 <p><strong>5、磁盘缓存策略</strong><br>glide3.7.0</p>
 <blockquote>
 <p>DiskCacheStrategy 的枚举意义：<br>DiskCacheStrategy.NONE 什么都不缓存<br>DiskCacheStrategy.SOURCE 只缓存全尺寸图<br>DiskCacheStrategy.RESULT 只缓存最终的加载图<br>DiskCacheStrategy.ALL 缓存所有版本图（默认行为）</p>
@@ -42,4 +251,176 @@
 <p>//DiskCacheStrategy.ALL 既缓存原始图片，也缓存转换过后的图片。<br>// DiskCacheStrategy.NONE 不缓存任何内容<br>// DiskCacheStrategy.DATA 在资源解码前就将原始数据写入磁盘缓存（即只缓存原始图片）<br>// DiskCacheStrategy.RESOURCE 在资源解码后将数据写入磁盘缓存，即经过缩放等转换后的图片资源（即只缓存转换过后的图片）。<br>// DiskCacheStrategy.AUTOMATIC 让Glide根据图片资源智能地选择使用哪一种缓存策略。<br>//（默认采用）DiskCacheStrategy.AUTOMATIC策略<br>/<em>——————————————————————————-</em>/<br>//源码 RequestOptions.java<br>private DiskCacheStrategy diskCacheStrategy = DiskCacheStrategy.AUTOMATIC;</p>
 </blockquote>
 <p><strong>6、占位符、错误图片设置</strong><br>glide4.0 若into中设置的是target，占位符（placeholder、error）需要在回调中再次设置，否则无效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void loadImg(String url, ImageView imageView) &#123;</span><br><span class="line">        &#x2F;&#x2F;into中用Target，占位符（placeholder、error）需要在回调中设置</span><br><span class="line">        GlideApp.with(FanhuanApplication.getInstance().getApplication())</span><br><span class="line">                .asBitmap()</span><br><span class="line">                .load(url)</span><br><span class="line">                .placeholder(drawbleId) &#x2F;&#x2F;设置资源加载过程中的占位符</span><br><span class="line">                .fallback(drawbleId)</span><br><span class="line">                .error(drawbleId)</span><br><span class="line">                .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">                .into(new SimpleTarget&lt;Bitmap&gt;() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    public void onResourceReady(Bitmap resource, Transition&lt;? super Bitmap&gt; transition) &#123;</span><br><span class="line">                       imageView.setImageBitmap(resource);                    </span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                    @Override</span><br><span class="line">                    public void onLoadFailed(@Nullable Drawable errorDrawable) &#123;</span><br><span class="line">                        super.onLoadFailed(errorDrawable);</span><br><span class="line">                         if(errorDrawable!&#x3D;null)&#123;</span><br><span class="line">                            imageView.setImageDrawable(errorDrawable);</span><br><span class="line">                        &#125;                  </span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    @Override</span><br><span class="line">                    public void onLoadStarted(@Nullable Drawable placeholder) &#123;</span><br><span class="line">                        super.onLoadStarted(placeholder);</span><br><span class="line">                       if(placeholder!&#x3D;null)&#123;</span><br><span class="line">                            imageView.setImageDrawable(placeholder);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E5%BA%94%E7%94%A8%E3%80%8C%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%8D%E2%80%94%E2%80%94DeviceID%E3%80%8C%E5%85%BC%E5%AE%B9android-10%EF%BC%88Q%EF%BC%89%E3%80%8D/" class="pre">Android 获取应用「唯一标识符」——DeviceID「兼容android 10（Q）」</a><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-3-x/" class="next">Android Glide集成及使用注意事项——Glide 3.x</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Glide-4-x%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">Glide 4.x集成及使用注意事项</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/22/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">Git 常用命令整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/">Android Studio 查看项目中jar包依赖关系 依赖树 父子级</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/">启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/">构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script></body></html>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">public</span> <span class="selector-tag">static</span> <span class="selector-tag">void</span> <span class="selector-tag">loadImg</span>(String url, ImageView imageView) &#123;</span><br><span class="line">        <span class="comment">//into中用Target，占位符（placeholder、error）需要在回调中设置</span></span><br><span class="line">        <span class="selector-tag">GlideApp</span><span class="selector-class">.with</span>(FanhuanApplication.getInstance().getApplication())</span><br><span class="line">                <span class="selector-class">.asBitmap</span>()</span><br><span class="line">                <span class="selector-class">.load</span>(url)</span><br><span class="line">                <span class="selector-class">.placeholder</span>(drawbleId) <span class="comment">//设置资源加载过程中的占位符</span></span><br><span class="line">                <span class="selector-class">.fallback</span>(drawbleId)</span><br><span class="line">                <span class="selector-class">.error</span>(drawbleId)</span><br><span class="line">                <span class="selector-class">.diskCacheStrategy</span>(DiskCacheStrategy.ALL)</span><br><span class="line">                <span class="selector-class">.into</span>(new SimpleTarget&lt;Bitmap&gt;() &#123;</span><br><span class="line">                    <span class="variable">@Override</span></span><br><span class="line">                    public void onResourceReady(Bitmap resource, Transition&lt;? super Bitmap&gt; transition) &#123;</span><br><span class="line">                       <span class="selector-tag">imageView</span><span class="selector-class">.setImageBitmap</span>(resource);                    </span><br><span class="line">                 &#125;</span><br><span class="line"></span><br><span class="line">                    @<span class="selector-tag">Override</span></span><br><span class="line">                    <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onLoadFailed</span>(<span class="variable">@Nullable</span> Drawable errorDrawable) &#123;</span><br><span class="line">                        <span class="selector-tag">super</span><span class="selector-class">.onLoadFailed</span>(errorDrawable);</span><br><span class="line">                         <span class="selector-tag">if</span>(errorDrawable!=null)&#123;</span><br><span class="line">                            <span class="selector-tag">imageView</span><span class="selector-class">.setImageDrawable</span>(errorDrawable);</span><br><span class="line">                        &#125;                  </span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    @<span class="selector-tag">Override</span></span><br><span class="line">                    <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onLoadStarted</span>(<span class="variable">@Nullable</span> Drawable placeholder) &#123;</span><br><span class="line">                        <span class="selector-tag">super</span><span class="selector-class">.onLoadStarted</span>(placeholder);</span><br><span class="line">                       <span class="selector-tag">if</span>(placeholder!=null)&#123;</span><br><span class="line">                            <span class="selector-tag">imageView</span><span class="selector-class">.setImageDrawable</span>(placeholder);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>fenglolo</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;10&#x2F;23&#x2F;Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;10&#x2F;23&#x2F;Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E5%BA%94%E7%94%A8%E3%80%8C%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%8D%E2%80%94%E2%80%94DeviceID%E3%80%8C%E5%85%BC%E5%AE%B9android-10%EF%BC%88Q%EF%BC%89%E3%80%8D/"><i class="iconfont iconleft"></i>Android 获取应用「唯一标识符」——DeviceID「兼容android 10（Q）」</a>
+    <a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-3-x/">Android Glide集成及使用注意事项——Glide 3.x<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Glide-4-x%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">Glide 4.x集成及使用注意事项</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

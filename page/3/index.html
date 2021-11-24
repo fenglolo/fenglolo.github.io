@@ -1,49 +1,283 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2021/04/29/Android-OkHttp%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%EF%BC%9Ajava-net-UnknownServiceException%EF%BC%9A-not-permitted-by-network-security-policy/">Android OkHttp请求报错：java.net.UnknownServiceException：..not permitted by network security policy</a></h2><div class="post-meta"><p><span class="date">2021-04-29</span></p></div><div class="post-content">问题
-在Android 9.0手机使用OkHttp请求一个http地址，会报如下错误。
 
-java.net.UnknownServiceException: CLEARTEXT communication to **** not permitted by network security policy
 
-原因是Android 9.0以后，Google官方解释：
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="生如夏花 汝予可荆">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
 
-为保证用户数据和设备的安全，Google针对下一代 Android 系统(Android P) 的应用程序，将要求默认使用加密连接，这意味着
-Android P 将禁止 App 使用所有未加密的连接，因此运行 Android P
-系统</div><p class="readmore"><a href="/2021/04/29/Android-OkHttp%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%EF%BC%9Ajava-net-UnknownServiceException%EF%BC%9A-not-permitted-by-network-security-policy/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/04/28/LitePal%E7%9A%84%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94Android%E5%BC%80%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/">LitePal的使用——Android开源数据库</a></h2><div class="post-meta"><p><span class="date">2021-04-28</span></p></div><div class="post-content">本文知识点
- 1. LitePal的集成
- 2. LitePal实现数据库的增删改查
- 3. LitePal常用的API
+  
+<link rel="stylesheet" href="/css/style.css">
 
-1. LitePal的集成
- * 引入相应的类库
- * 创建litepal.xml
- * 更换继承的Application
 
-1.1 引入相应的类库
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: true,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center"> </div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  
+    <div class="preview">
+  <!-- <nav class="navbar j-navbar-menu">
+    <i class="iconfont iconmenu"></i>
+  </nav> -->
+  <div class="preview-image">
+    
+        
+              <div class="preview-overlay">
+                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                  <defs>
+                    <path id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                  </defs>
+                  <g class="preview-parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
+                  </g>
+                </svg>
+              </div>
+              
+  </div>
+  <div class="preview-motto-wrapper">
+    <h2 class="preview-motto" id="motto">
+      
+    </h2>
+    
+      <span class="preview-cursor">_</span>
+      
+  </div>
+  <div class="preview-scroll">
+    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
+  </div>
+</div>
+  
+  <div class="container" id="container">
+    <section class="row post">
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/05/25/Android-Studio-%E5%BC%95%E5%85%A5aar%E6%96%87%E4%BB%B6/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/05/25/Android-Studio-%E5%BC%95%E5%85%A5aar%E6%96%87%E4%BB%B6/" title="Android Studio 引入aar文件" >Android Studio 引入aar文件</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">方法一：在app目录下导入aar
+
+ 1. 在app-libs目录下导入aar
+    在这里插入图片描述
+ 2. 在app-build.gradle中配置
 
 1
 2
+3
+4
+5
 
 
-//litepal数据库
-   implementation 'org.litepal.guolindev:core:3.2.3'
+repos...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 25, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+  
+    
 
-1.2 创建litepal.xml
-
-litepal.xml是在assets文件夹下，
-项目main路径下New->Folder->AssetsFolder就可以创建相应的as</div><p class="readmore"><a href="/2021/04/28/LitePal%E7%9A%84%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94Android%E5%BC%80%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/04/27/Android-Studio-%E4%BD%BF%E7%94%A8Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%8D/">Android Studio 使用Lambda表达式「详细配置」</a></h2><div class="post-meta"><p><span class="date">2021-04-27</span></p></div><div class="post-content">前言：
-
-Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。
-Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。
-使用 Lambda 表达式可以使代码变的更加简洁紧凑。
-
-
-
-
-配置：
-
-1、安装java 8，并在android studio中配置使用；
-
-2、app build.gradle中配置
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/05/25/Android-String%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/05/25/Android-String%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="Android String字符串截取方法总结" >Android String字符串截取方法总结</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">Android String字符串截取方法总结
+ 1. 指定字符，截取字符串，返回字符串数组：
 
 1
 2
@@ -51,24 +285,182 @@ Lambda 允许把函数作为一个方法的参数（函数作为参数传递进�
 4
 
 
-compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VER</div><p class="readmore"><a href="/2021/04/27/Android-Studio-%E4%BD%BF%E7%94%A8Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/">Android中EditText优先弹出数字输入法</a></h2><div class="post-meta"><p><span class="date">2021-04-26</span></p></div><div class="post-content">Android中EditText优先弹出数字输入法
-当一个EditText使用数字的频率很高，比如用来输入手机号等等，但是有时候可能也需要使用到输入英文和汉字的需求。这个时候，我们默认当EditText弹出时，优化弹出数字键盘比较好。
 
-解决方案
+String str = &#34;abcd.efg.123456.hijk.34...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 25, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/05/06/Mac-OS%E7%B3%BB%E7%BB%9F%E6%80%8E%E4%B9%88%E4%BF%AE%E6%94%B9mac%E5%9C%B0%E5%9D%80/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/05/06/Mac-OS%E7%B3%BB%E7%BB%9F%E6%80%8E%E4%B9%88%E4%BF%AE%E6%94%B9mac%E5%9C%B0%E5%9D%80/" title="Mac OS系统怎么修改mac地址" >Mac OS系统怎么修改mac地址</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">有时候我们需要指定固定的mac地址上网
+
+具体方法：
+
+1
+
+
+networksetup -listallhardwareports //查看当前所有端口Mac地址
+
 
 1
 2
 3
 
 
-//默认直接显示数字键盘
-editText.setInputType(InputType.TYPE_CLASS_TEXT);
-editText.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+sudo...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 06, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+  
+    
 
-setInputType和setRawInputType的不同之处是：前者是输入内容限制，后者</div><p class="readmore"><a href="/2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/">Android 11 调用手机系统摄像头新策略 IMAGE_CAPTURE</a></h2><div class="post-meta"><p><span class="date">2021-03-30</span></p></div><div class="post-content">前言
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/29/Android-OkHttp%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%EF%BC%9Ajava-net-UnknownServiceException%EF%BC%9A-not-permitted-by-network-security-policy/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/29/Android-OkHttp%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%EF%BC%9Ajava-net-UnknownServiceException%EF%BC%9A-not-permitted-by-network-security-policy/" title="Android OkHttp请求报错：java.net.UnknownServiceException：..not permitted by network security policy" >Android OkHttp请求报错：java.net.UnknownServiceException：..not permitted by network security policy</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">问题
+在Android 9.0手机使用OkHttp请求一个http地址，会报如下错误。
+
+java.net.UnknownServiceException: CLEARTEXT communic...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>April 29, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/28/LitePal%E7%9A%84%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94Android%E5%BC%80%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/28/LitePal%E7%9A%84%E4%BD%BF%E7%94%A8%E2%80%94%E2%80%94Android%E5%BC%80%E6%BA%90%E6%95%B0%E6%8D%AE%E5%BA%93/" title="LitePal的使用——Android开源数据库" >LitePal的使用——Android开源数据库</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">本文知识点
+ 1. LitePal的集成
+ 2. LitePal实现数据库的增删改查
+ 3. LitePal常用的API
+
+1. LitePal的集成
+ * 引入相应的类库
+ * 创建litep...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>April 28, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/27/Android-Studio-%E4%BD%BF%E7%94%A8Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%8D/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/27/Android-Studio-%E4%BD%BF%E7%94%A8Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8C%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%8D/" title="Android Studio 使用Lambda表达式「详细配置」" >Android Studio 使用Lambda表达式「详细配置」</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言：
+
+Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。
+Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。
+使用 Lambda 表达式可...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>April 27, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/04/26/Android%E4%B8%ADEditText%E4%BC%98%E5%85%88%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E8%BE%93%E5%85%A5%E6%B3%95/" title="Android中EditText优先弹出数字输入法" >Android中EditText优先弹出数字输入法</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">Android中EditText优先弹出数字输入法
+当一个EditText使用数字的频率很高，比如用来输入手机号等等，但是有时候可能也需要使用到输入英文和汉字的需求。这个时候，我们默认当Edit...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>April 26, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/" title="Android 11 调用手机系统摄像头新策略 IMAGE_CAPTURE" >Android 11 调用手机系统摄像头新策略 IMAGE_CAPTURE</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
 
 android 11 调用系统摄像头有了新的策略，需兼容才可行
 
@@ -81,114 +473,175 @@ android 11 调用系统摄像头有了新的策略，需兼容才可行
 2
 
 
-Intent captureIntent = new Intent("android.media.action.IMAGE_CAPTURE");
-        if (captureIntent.resolveActivity(this.getPackageManager()) != null) {}
+Intent captureIntent = ne...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 30, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+  
+    
 
-2、在Android11之后，captureIntent.resolveActivity(this.getPackageManager())方法将</div><p class="readmore"><a href="/2021/03/30/Android-11-%E8%B0%83%E7%94%A8%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B0%E7%AD%96%E7%95%A5-IMAGE-CAPTURE/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/03/10/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE-View-%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D%E2%80%94%E2%80%942-0%EF%BC%88%E6%8E%A7%E5%88%B6view%E7%9A%84click%E4%BA%8B%E4%BB%B6%EF%BC%89/">Android 防止按钮(View)多次重复点击之「防重复点击」——2.0（控制view的click事件）</a></h2><div class="post-meta"><p><span class="date">2021-03-10</span></p></div><div class="post-content">前言
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2021/03/10/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE-View-%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D%E2%80%94%E2%80%942-0%EF%BC%88%E6%8E%A7%E5%88%B6view%E7%9A%84click%E4%BA%8B%E4%BB%B6%EF%BC%89/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2021/03/10/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE-View-%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D%E2%80%94%E2%80%942-0%EF%BC%88%E6%8E%A7%E5%88%B6view%E7%9A%84click%E4%BA%8B%E4%BB%B6%EF%BC%89/" title="Android 防止按钮(View)多次重复点击之「防重复点击」——2.0（控制view的click事件）" >Android 防止按钮(View)多次重复点击之「防重复点击」——2.0（控制view的click事件）</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
 
 为了防止“按钮”的点击事件在短时间内多次点击从而触发了多次处理操作；
-比如：快速点击“登录按钮”发送了多次登录接口，导致程序在短时间内进行多次数据提交or数据处理，这样的体验就不太好了。
+比如：快速点击“登录按钮”发送了多次登录接口，导致程序在短时间内进行多次数据提交or数据处理，这样的体验就不太好了。...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 10, 2021</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+  
+</section>
+    <section class="paginator">
+  
+    <a class="extend prev" rel="prev" href="/page/2/">&lt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">&gt;</a>
+  
+</section>
+  </div>
+</main>
+  
 
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
 
+  
+  
+</body>
 
-方法
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
-
-public class ClickHelper {
-
-    private static final android.os.Handler mHandler = new android.os.Handler(android.os.Looper.getMainLooper(</div><p class="readmore"><a href="/2021/03/10/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE-View-%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D%E2%80%94%E2%80%942-0%EF%BC%88%E6%8E%A7%E5%88%B6view%E7%9A%84click%E4%BA%8B%E4%BB%B6%EF%BC%89/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/21/Android-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">Android-沉浸式状态栏的实现</a></h2><div class="post-meta"><p><span class="date">2021-01-21</span></p></div><div class="post-content">1、取得状态栏的高度值
-
-通过反射获取状态栏高度（部分手机可能获取不到）
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
-
-/**
-    * 获取状态栏的高度
-    * @return
-    */
-   protected int getStatusBarHeight(){
-
-       try {
-           //通过反射获取到类
-           Class<?> aClass = Class.forName("com.android.internal.R$dimen");
-         </div><p class="readmore"><a href="/2021/01/21/Android-%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/14/HashMap%E5%92%8CLinkedHashMap%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">HashMap和LinkedHashMap的比较使用</a></h2><div class="post-meta"><p><span class="date">2021-01-14</span></p></div><div class="post-content">前言
-Hashmap
-
-1> Hashmap 是一个最常用的Map,它根据键的HashCode值存储数据,根据键可以直接获取它的值，具有很快的访问速度，遍历时，**取得数据的顺序是完全随机的**。
-2> HashMap最多只允许一条记录的键为Null;允许多条记录的值为 Null;HashMap不支持线程的同步，即任一时刻可以有多个线程同时写HashMap;可能会导致数据的不一致。如果需要同步，可以用 Collections的synchronizedMap方法使HashMap具有同步的能力，或者使用ConcurrentHashMap。
-
-LinkedHashMap
-
-1> LinkedHash</div><p class="readmore"><a href="/2021/01/14/HashMap%E5%92%8CLinkedHashMap%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/14/HashSet%E5%92%8CLinkedHashSet%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">HashSet和LinkedHashSet的比较使用</a></h2><div class="post-meta"><p><span class="date">2021-01-14</span></p></div><div class="post-content">前言
-HashSet
-
-HashSet有以下特点
-—— 不能保证元素的排列顺序，顺序有可能发生变化
-—— 不是同步的
-—— 集合元素可以是null,但只能放入一个null
-当向HashSet结合中存入一个元素时，HashSet会调用该对象的hashCode()方法来得到该对象的hashCode值，然后根据 hashCode值来决定该对象在HashSet中存储位置。
-简单的说，HashSet集合判断两个元素相等的标准是两个对象通过equals方法比较相等，并且两个对象的hashCode()方法返回值相 等
-注意，如果要把一个对象放入HashSet中，重写该对象对应类的equals方法，也应该重写</div><p class="readmore"><a href="/2021/01/14/HashSet%E5%92%8CLinkedHashSet%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/">Mac AndroidStudio 中安装plantUML插件</a></h2><div class="post-meta"><p><span class="date">2021-01-13</span></p></div><div class="post-content">Mac版 AS 安装plantUML插件
-
-1、打开setting面板；
-2、找到Plugins；
-3、在搜索框中输入plantUML，进行搜索；
-
-4、点击安装插件，并重启AS；
-5、File双击 -> New，就可以看到一个PlantUML File了。
-6、新建一个PlantUML File格式的文件，就可以用代码来愉快的画图了。
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
 
 
 
 
-PlantUML语法使用详见
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 
-https://blog.csdn.net/fenglolo/article/details/112562026</div><p class="readmore"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/2/">Previous</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/22/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">Git 常用命令整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/">Android Studio 查看项目中jar包依赖关系 依赖树 父子级</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/">启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/">构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

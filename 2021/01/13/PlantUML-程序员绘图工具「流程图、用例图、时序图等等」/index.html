@@ -1,4 +1,213 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>PlantUML-程序员绘图工具「流程图、用例图、时序图等等」 | 丰囖囖的博客</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</h1><div class="post-meta"><a href="/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/#comments" class="comment-count"></a><p><span class="date">Jan 13, 2021</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><blockquote>
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PlantUML-程序员绘图工具「流程图、用例图、时序图等等」 - 丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="前言
+1、PlantUML 是一个开源项目，支持快速绘...">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 13, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1837</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><blockquote>
 <p>1、PlantUML 是一个开源项目，支持快速绘制时序图、用例图、类图、活动图、组件图、状态图、对象图、部署图等。<br>2、PlantUML拥有独立的一套语法，实现代码控制画图，便于后期的修改等操作</p>
 </blockquote>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h2><p>1、<a target="_blank" rel="noopener" href="https://plantuml.com/zh/activity-diagram-beta">https://plantuml.com/zh/activity-diagram-beta</a><br>2、<a target="_blank" rel="noopener" href="https://www.yuque.com/yuque/help/editor-puml">https://www.yuque.com/yuque/help/editor-puml</a></p>
@@ -6,43 +215,215 @@
 <p><strong>简单活动图</strong></p>
 <p>活动标签(activity label)以冒号开始，以分号结束。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">:Hello world;</span><br><span class="line">:这是一个测试步骤;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113140737752.png" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113140737752.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>开始/结束</strong></p>
 <p>你可以使用关键字 <strong>start</strong> 和 <strong>stop</strong> 表示图示的开始和结束。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">:Hello world;</span><br><span class="line">:这是一个测试步骤;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">stop</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113141037715.png" alt="在这里插入图片描述"><br>也可以使用 <strong>end</strong> 关键字。</p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113141037715.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span><br>也可以使用 <strong>end</strong> 关键字。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">:Hello world;</span><br><span class="line">:这是一个测试步骤;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113141351556.png" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113141351556.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>条件语句</strong></p>
 <p>在图示中可以使用关键字<strong>if</strong>，<strong>then</strong>和<strong>else</strong>设置分支测试。标注文字则放在括号中。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">    if(是否已经吃饭) then(是)</span><br><span class="line">        :不再吃饭;</span><br><span class="line">    <span class="selector-tag">else</span>(否)</span><br><span class="line">        :去吃饭;</span><br><span class="line">    <span class="selector-tag">endif</span></span><br><span class="line">    </span><br><span class="line"><span class="selector-tag">stop</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113142049782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113142049782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <p>也可以使用关键字<strong>elseif</strong>设置多个分支测试。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">    if(条件a) then(yes)</span><br><span class="line">        :do 条件a;</span><br><span class="line">    <span class="selector-tag">elseif</span>(条件<span class="selector-tag">b</span>) <span class="selector-tag">then</span>(<span class="selector-tag">yes</span>)</span><br><span class="line">        <span class="selector-pseudo">:do</span> 条件<span class="selector-tag">b</span>;</span><br><span class="line">        <span class="selector-tag">end</span></span><br><span class="line">    <span class="selector-tag">elseif</span>(条件<span class="selector-tag">c</span>) <span class="selector-tag">then</span>(<span class="selector-tag">yes</span>)</span><br><span class="line">        <span class="selector-pseudo">:do</span> 条件<span class="selector-tag">c</span>;</span><br><span class="line">    <span class="selector-tag">elseif</span>(条件<span class="selector-tag">d</span>) <span class="selector-tag">then</span>(<span class="selector-tag">yes</span>)</span><br><span class="line">        <span class="selector-pseudo">:do</span> 条件<span class="selector-tag">d</span>;</span><br><span class="line">    <span class="selector-tag">else</span>(<span class="selector-tag">nothing</span>)</span><br><span class="line">        <span class="selector-pseudo">:do</span> <span class="selector-tag">nothing</span>;</span><br><span class="line">    <span class="selector-tag">endif</span></span><br><span class="line"><span class="selector-tag">stop</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113142533870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果想要中段一个判断，可以使用<strong>kill</strong>或者<strong>detach</strong>关键字。</p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113142533870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span><br>如果想要中段一个判断，可以使用<strong>kill</strong>或者<strong>detach</strong>关键字。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">if (条件满足?) then</span><br><span class="line">  #<span class="attribute">pink:</span>error;</span><br><span class="line">  <span class="selector-tag">kill</span></span><br><span class="line"><span class="selector-tag">endif</span></span><br><span class="line"><span class="selector-id">#palegreen</span><span class="selector-pseudo">:action</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">if (条件满足?) then</span><br><span class="line">  #<span class="attribute">pink:</span>error;</span><br><span class="line">  <span class="selector-tag">detach</span></span><br><span class="line"><span class="selector-tag">endif</span></span><br><span class="line"><span class="selector-id">#palegreen</span><span class="selector-pseudo">:action</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113143018170.png" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113143018170.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>重复循环</strong></p>
 <p>你可以使用关键字<strong>repeat</strong>和<strong>repeat while</strong>和<strong>backward</strong>进行重复循环。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">repeat :开始;</span><br><span class="line">  :步骤1;</span><br><span class="line">  :步骤2;</span><br><span class="line"><span class="selector-tag">backward</span>:返回到开始;</span><br><span class="line"><span class="selector-tag">repeat</span> <span class="selector-tag">while</span> (返回?)</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">stop</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113143518920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113143518920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>while循环</strong></p>
 <p>可以使用关键字while和end while进行while循环。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">:i = 5;</span><br><span class="line">while (i = 2 ?) is (no)</span><br><span class="line">  <span class="selector-pseudo">:i--</span>;</span><br><span class="line"><span class="selector-tag">endwhile</span> (<span class="selector-tag">yes</span>)</span><br><span class="line"><span class="selector-pseudo">:next</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113144108819.png" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113144108819.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>注释</strong></p>
 <p>使用floating关键字给流程添加注释。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">:步骤1;</span><br><span class="line"><span class="selector-tag">floating</span> <span class="selector-tag">note</span> <span class="selector-tag">left</span>: 这是一个注释</span><br><span class="line">:步骤2;</span><br><span class="line"><span class="selector-tag">note</span> <span class="selector-tag">right</span></span><br><span class="line">  这是一个注释</span><br><span class="line">  //lines// and can</span><br><span class="line">  contain &lt;b&gt;HTML&lt;/b&gt;</span><br><span class="line">  ====</span><br><span class="line">  * <span class="selector-tag">Calling</span> <span class="selector-tag">the</span> <span class="selector-tag">method</span> &quot;&quot;<span class="selector-tag">foo</span>()&quot;&quot; <span class="selector-tag">is</span> <span class="selector-tag">prohibited</span></span><br><span class="line"><span class="selector-tag">end</span> <span class="selector-tag">note</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">stop</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2021011314475297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/2021011314475297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Zlbmdsb2xv,size_16,color_FFFFFF,t_70" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
 <hr>
 <p><strong>颜色</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@startuml</span></span><br><span class="line"></span><br><span class="line">start</span><br><span class="line"></span><br><span class="line">:步骤1;</span><br><span class="line"><span class="selector-id">#HotPink</span>:步骤2;</span><br><span class="line"><span class="selector-id">#AAAAAA</span>:步骤3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@enduml</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210113145900387.png" alt="在这里插入图片描述"></p>
-</div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/" class="pre">Mac AndroidStudio 中安装plantUML插件</a><a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/" class="next">Android 调试桥 (adb)</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PlantUML%E8%AF%AD%E6%B3%95"><span class="toc-text">PlantUML语法</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/22/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">Git 常用命令整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/">Android Studio 查看项目中jar包依赖关系 依赖树 父子级</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/">启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/">构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script></body></html>
+<p><img    class="lazyload" data-original="https://img-blog.csdnimg.cn/20210113145900387.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">在这里插入图片描述</span></p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>fenglolo</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;01&#x2F;13&#x2F;PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;01&#x2F;13&#x2F;PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/"><i class="iconfont iconleft"></i>Mac AndroidStudio 中安装plantUML插件</a>
+    <a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/">Android 调试桥 (adb)<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PlantUML%E8%AF%AD%E6%B3%95"><span class="toc-text">PlantUML语法</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

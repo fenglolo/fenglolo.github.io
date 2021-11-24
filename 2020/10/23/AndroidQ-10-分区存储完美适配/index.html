@@ -1,4 +1,214 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>AndroidQ(10)分区存储完美适配 | 丰囖囖的博客</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">AndroidQ(10)分区存储完美适配</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">AndroidQ(10)分区存储完美适配</h1><div class="post-meta"><a href="/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/#comments" class="comment-count"></a><p><span class="date">Oct 23, 2020</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p><strong>前言</strong></p>
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AndroidQ(10)分区存储完美适配 - 丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="前言
+
+Android Q文件存储机制修改成了沙盒模式...">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">AndroidQ(10)分区存储完美适配</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">AndroidQ(10)分区存储完美适配</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3948</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p><strong>前言</strong></p>
 <ul>
 <li>Android Q文件存储机制修改成了沙盒模式</li>
 <li>APP只能访问自己目录下的文件和公共媒体文件</li>
@@ -12,18 +222,190 @@
 <p><strong>适配方案</strong></p>
 <p>AndroidQ中使用ContentResolver进行文件的增删改查</p>
 <p><strong>1、获取(创建)自身目录下的文件夹</strong><br>获取及创建，如果手机中没有对应的文件夹，则系统会自动生成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">&#x2F;&#x2F;在自身目录下创建apk文件夹</span><br><span class="line">File apkFile &#x3D; context.getExternalFilesDir(&quot;apk&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line"><span class="comment">//在自身目录下创建apk文件夹</span></span><br><span class="line"><span class="built_in">File</span> apkFile = context.getExternalFilesDir(<span class="string">&quot;apk&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>2、创建自身目录下的文件</strong><br>生成需要下载的路径，通过输入输出流读取写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">String apkFilePath &#x3D; context.getExternalFilesDir(&quot;apk&quot;).getAbsolutePath();</span><br><span class="line">File newFile &#x3D; new File(apkFilePath + File.separator + &quot;temp.apk&quot;);</span><br><span class="line">OutputStream os &#x3D; null;</span><br><span class="line">try &#123;</span><br><span class="line">  os &#x3D; new FileOutputStream(newFile);</span><br><span class="line">  if (os !&#x3D; null) &#123;</span><br><span class="line">    os.write(&quot;file is created&quot;.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">    os.flush();</span><br><span class="line">  &#125;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    if (os !&#x3D; null) &#123;</span><br><span class="line">      os.close();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; catch (IOException e1) &#123;</span><br><span class="line">     </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> apkFilePath = context.getExternalFilesDir(<span class="string">&quot;apk&quot;</span>).getAbsolutePath();</span><br><span class="line">File <span class="keyword">new</span><span class="type">File</span> = <span class="keyword">new</span> <span class="type">File</span>(apkFilePath + File.separator + <span class="string">&quot;temp.apk&quot;</span>);</span><br><span class="line">OutputStream os = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  os = <span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="keyword">new</span><span class="type">File</span>);</span><br><span class="line">  <span class="keyword">if</span> (os != <span class="literal">null</span>) &#123;</span><br><span class="line">    os.write(<span class="string">&quot;file is created&quot;</span>.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">    os.flush();</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (os != <span class="literal">null</span>) &#123;</span><br><span class="line">      os.close();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">     </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>3、创建公共目录下的文件夹</strong><br>通过MediaStore.insert写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.Q) &#123;</span><br><span class="line">  return null;</span><br><span class="line">&#125;</span><br><span class="line">ContentResolver resolver &#x3D; context.getContentResolver();</span><br><span class="line">ContentValues values &#x3D; new ContentValues();</span><br><span class="line">values.put(MediaStore.Downloads.DISPLAY_NAME, fileName);</span><br><span class="line">values.put(MediaStore.Downloads.DESCRIPTION, fileName);</span><br><span class="line">&#x2F;&#x2F;设置文件类型</span><br><span class="line">values.put(MediaStore.Downloads.MIME_TYPE, &quot;application&#x2F;vnd.android.package-archive&quot;);</span><br><span class="line">&#x2F;&#x2F;注意MediaStore.Downloads.RELATIVE_PATH需要targetVersion&#x3D;29,</span><br><span class="line">&#x2F;&#x2F;故该方法只可在Android10的手机上执行</span><br><span class="line">values.put(MediaStore.Downloads.RELATIVE_PATH, &quot;Download&quot; + File.separator + &quot;apk&quot;);</span><br><span class="line">Uri external &#x3D; MediaStore.Downloads.EXTERNAL_CONTENT_URI;</span><br><span class="line">Uri insertUri &#x3D; resolver.insert(external, values);</span><br><span class="line">return insertUri;</span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.Q) &#123;</span><br><span class="line">  <span class="built_in">return</span> null;</span><br><span class="line">&#125;</span><br><span class="line">ContentResolver resolver = <span class="built_in">context</span>.getContentResolver();</span><br><span class="line">ContentValues <span class="built_in">values</span> = <span class="built_in">new</span> ContentValues();</span><br><span class="line"><span class="built_in">values</span>.<span class="built_in">put</span>(MediaStore.Downloads.DISPLAY_NAME, fileName);</span><br><span class="line"><span class="built_in">values</span>.<span class="built_in">put</span>(MediaStore.Downloads.DESCRIPTION, fileName);</span><br><span class="line">//设置文件类型</span><br><span class="line"><span class="built_in">values</span>.<span class="built_in">put</span>(MediaStore.Downloads.MIME_TYPE, <span class="string">&quot;application/vnd.android.package-archive&quot;</span>);</span><br><span class="line">//注意MediaStore.Downloads.RELATIVE_PATH需要targetVersion=<span class="number">29</span>,</span><br><span class="line">//故该方法只可在Android10的手机上执行</span><br><span class="line"><span class="built_in">values</span>.<span class="built_in">put</span>(MediaStore.Downloads.RELATIVE_PATH, <span class="string">&quot;Download&quot;</span> + File.separator + <span class="string">&quot;apk&quot;</span>);</span><br><span class="line">Uri external = MediaStore.Downloads.EXTERNAL_CONTENT_URI;</span><br><span class="line">Uri insertUri = resolver.insert(external, <span class="built_in">values</span>);</span><br><span class="line"><span class="built_in">return</span> insertUri;</span><br></pre></td></tr></table></figure>
 <p><strong>4、公共目录下的指定文件夹下创建文件</strong><br>结合上面代码，我们主要是在公共目录下创建文件或文件夹拿到本地路径uri，不同的Uri，可以保存到不同的公共目录中。接下来使用输入输出流就可以写入文件</p>
 <p>重点：AndroidQ中不支持file://类型访问文件，只能通过uri方式访问</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ContentResolver resolver &#x3D; context.getContentResolver();</span><br><span class="line">Uri insertUri &#x3D; resolver.insert(external, values);</span><br><span class="line">if(insertUri &#x3D;&#x3D; null) &#123;</span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line">String mFilePath &#x3D; insertUri.toString();</span><br><span class="line">InputStream is &#x3D; null;</span><br><span class="line">OutputStream os &#x3D; null;</span><br><span class="line">try &#123;</span><br><span class="line">  os &#x3D; resolver.openOutputStream(insertUri);</span><br><span class="line">  if(os &#x3D;&#x3D; null)&#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  int read;</span><br><span class="line">  File sourceFile &#x3D; new File(sourcePath);</span><br><span class="line">  if (sourceFile.exists()) &#123; &#x2F;&#x2F; 文件存在时</span><br><span class="line">    is &#x3D; new FileInputStream(sourceFile); &#x2F;&#x2F; 读入原文件</span><br><span class="line">    byte[] buffer &#x3D; new byte[1024];</span><br><span class="line">    while ((read &#x3D; is.read(buffer)) !&#x3D; -1) &#123;</span><br><span class="line">      os.write(buffer, 0, read);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    if (is !&#x3D; null) &#123;</span><br><span class="line">      is.close();</span><br><span class="line">    &#125;</span><br><span class="line">    if (os !&#x3D; null) &#123;</span><br><span class="line">      os.close();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">ContentResolver resolver = context.getContentResolver();</span><br><span class="line">Uri insertUri = resolver.<span class="keyword">insert</span>(<span class="keyword">external</span>, <span class="keyword">values</span>);</span><br><span class="line"><span class="keyword">if</span>(insertUri == <span class="keyword">null</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">String mFilePath = insertUri.toString();</span><br><span class="line">InputStream <span class="keyword">is</span> = <span class="keyword">null</span>;</span><br><span class="line">OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">try &#123;</span><br><span class="line">  os = resolver.openOutputStream(insertUri);</span><br><span class="line">  <span class="keyword">if</span>(os == <span class="keyword">null</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> <span class="keyword">read</span>;</span><br><span class="line">  File sourceFile = <span class="built_in">new</span> File(sourcePath);</span><br><span class="line">  <span class="keyword">if</span> (sourceFile.<span class="keyword">exists</span>()) &#123; // 文件存在时</span><br><span class="line">    <span class="keyword">is</span> = <span class="built_in">new</span> FileInputStream(sourceFile); // 读入原文件</span><br><span class="line">    byte[] buffer = <span class="built_in">new</span> byte[<span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">while</span> ((<span class="keyword">read</span> = <span class="keyword">is</span>.<span class="keyword">read</span>(buffer)) != <span class="number">-1</span>) &#123;</span><br><span class="line">      os.<span class="keyword">write</span>(buffer, <span class="number">0</span>, <span class="keyword">read</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; catch (<span class="keyword">Exception</span> e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">is</span> != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">is</span>.<span class="keyword">close</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (os != <span class="keyword">null</span>) &#123;</span><br><span class="line">      os.<span class="keyword">close</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>5、通过MediaStore读取公共目录下的文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ParcelFileDescriptor parcelFileDescriptor &#x3D; null;</span><br><span class="line">FileDescriptor fileDescriptor &#x3D; null;</span><br><span class="line">Bitmap tagBitmap &#x3D; null;</span><br><span class="line">try &#123;</span><br><span class="line">  parcelFileDescriptor &#x3D; context.getContentResolver().openFileDescriptor(uri, &quot;r&quot;);</span><br><span class="line">       </span><br><span class="line">  if (parcelFileDescriptor !&#x3D; null &amp;&amp; parcelFileDescriptor.getFileDescriptor() !&#x3D; null) &#123;</span><br><span class="line">    fileDescriptor &#x3D; parcelFileDescriptor.getFileDescriptor();</span><br><span class="line">    &#x2F;&#x2F;转换uri为bitmap类型</span><br><span class="line">    tagBitmap &#x3D; BitmapFactory.decodeFileDescriptor(fileDescriptor);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    if (parcelFileDescriptor !&#x3D; null) &#123;</span><br><span class="line">      parcelFileDescriptor.close();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; catch (IOException e) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ParcelFileDescriptor parcelFileDescriptor = null;</span><br><span class="line">FileDescriptor fileDescriptor = null;</span><br><span class="line">Bitmap tagBitmap = null;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  parcelFileDescriptor = context.get<span class="constructor">ContentResolver()</span>.<span class="keyword">open</span><span class="constructor">FileDescriptor(<span class="params">uri</span>, <span class="string">&quot;r&quot;</span>)</span>;</span><br><span class="line">       </span><br><span class="line">  <span class="keyword">if</span> (parcelFileDescriptor != null<span class="operator"> &amp;&amp; </span>parcelFileDescriptor.get<span class="constructor">FileDescriptor()</span> != null) &#123;</span><br><span class="line">    fileDescriptor = parcelFileDescriptor.get<span class="constructor">FileDescriptor()</span>;</span><br><span class="line">    <span class="comment">//转换uri为bitmap类型</span></span><br><span class="line">    tagBitmap = <span class="module-access"><span class="module"><span class="identifier">BitmapFactory</span>.</span></span>decode<span class="constructor">FileDescriptor(<span class="params">fileDescriptor</span>)</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">  e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">  e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (parcelFileDescriptor != null) &#123;</span><br><span class="line">      parcelFileDescriptor.close<span class="literal">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; catch (IOException e) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>6、使用MediaStore删除文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.getContentResolver().delete(fileUri, null, null);</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">context.getContentResolver().delete(fileUri,</span> <span class="literal">null</span><span class="string">,</span> <span class="literal">null</span><span class="string">);</span></span><br></pre></td></tr></table></figure>
 <p><strong>转载来自</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/271bbd13bfcf">会撒娇的犀犀利</a></p>
-</div><div class="tags"></div><div class="post-share"></div><div class="post-nav"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/" class="pre">手机Web前端调试页面之——Chrome DevTools（谷歌浏览器）的模拟手机调试</a><a href="/2020/10/23/Java%E4%B8%ADtry-catch-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE/" class="next">Java中try()catch{}的使用方法：自动资源释放</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/22/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">Git 常用命令整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/">Android Studio 查看项目中jar包依赖关系 依赖树 父子级</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/">启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/">构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><div id="fullscreen-img" class="hide"><span class="close"></span></div><script type="text/javascript" src="/js/imgview.js?v=2.0.5" async></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.5" async></script></body></html>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>fenglolo</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;10&#x2F;23&#x2F;AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;10&#x2F;23&#x2F;AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/"><i class="iconfont iconleft"></i>手机Web前端调试页面之——Chrome DevTools（谷歌浏览器）的模拟手机调试</a>
+    <a href="/2020/10/23/Java%E4%B8%ADtry-catch-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE/">Java中try()catch{}的使用方法：自动资源释放<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

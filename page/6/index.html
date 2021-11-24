@@ -1,11 +1,477 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-Dialog-%E5%8E%BB%E6%8E%89%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9%E5%B1%82%E3%80%8C%E5%85%A8%E9%80%8F%E6%98%8E%E3%80%8D/">Android Dialog 去掉透明遮罩层「全透明」</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">dialog即使设置透明背景也会有一个蒙层（遮罩层），有时候因为UI设计并不想要这个蒙层。
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="生如夏花 汝予可荆">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: true,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center"> </div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  
+    <div class="preview">
+  <!-- <nav class="navbar j-navbar-menu">
+    <i class="iconfont iconmenu"></i>
+  </nav> -->
+  <div class="preview-image">
+    
+        
+              <div class="preview-overlay">
+                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                  <defs>
+                    <path id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                  </defs>
+                  <g class="preview-parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
+                  </g>
+                </svg>
+              </div>
+              
+  </div>
+  <div class="preview-motto-wrapper">
+    <h2 class="preview-motto" id="motto">
+      
+    </h2>
+    
+      <span class="preview-cursor">_</span>
+      
+  </div>
+  <div class="preview-scroll">
+    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
+  </div>
+</div>
+  
+  <div class="container" id="container">
+    <section class="row post">
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-%E9%98%B2%E6%AD%A2%E6%8C%89%E9%92%AE%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E4%B9%8B%E3%80%8C%E9%98%B2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB%E3%80%8D/" title="Android 防止按钮多次重复点击之「防重复点击」" >Android 防止按钮多次重复点击之「防重复点击」</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
+
+为了防止“按钮”的点击事件在短时间内多次点击从而触发了多次处理操作；
+比如：快速点击“登录按钮”发送了多次登录接口，导致程序在短时间内进行多次数据提交or数据处理，这样的体验就不太好了。...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/macOS-Catalina-10-15-6-%E5%8F%8C%E7%BD%91%E5%8D%A1%E5%90%8C%E6%97%B6%E8%BF%9E%E5%86%85%E5%A4%96%E7%BD%91/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/macOS-Catalina-10-15-6-%E5%8F%8C%E7%BD%91%E5%8D%A1%E5%90%8C%E6%97%B6%E8%BF%9E%E5%86%85%E5%A4%96%E7%BD%91/" title="macOS Catalina(10.15.6)双网卡同时连内外网" >macOS Catalina(10.15.6)双网卡同时连内外网</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前提
+
+使用网线连接内网，此时不能连接外网，无线可以连接外网，却又不能完成部分在内网才能完成的操作
+
+1、修改无线网卡的优先级，使之大于有线网卡
+
+在这里插入图片描述
+在这里插入图片描述
+
+进入...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-dp%E5%92%8Cpx%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-dp%E5%92%8Cpx%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" title="Android dp和px之间相互转换" >Android dp和px之间相互转换</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
+
+android中在xml布局中我们可以使用dp和px都可以；
+但是在代码中，很多方法只提供了设置px的方法，这时候就需要用到dp和px相互切换了。
+
+方法
+
+1
+2
+3
+4
+5
+6
+7
+...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-%E9%99%90%E5%88%B6EditText%E8%BE%93%E5%85%A5%E7%9A%84%E6%96%87%E6%9C%AC%E8%A1%8C%E6%95%B0%E4%B8%BA1/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-%E9%99%90%E5%88%B6EditText%E8%BE%93%E5%85%A5%E7%9A%84%E6%96%87%E6%9C%AC%E8%A1%8C%E6%95%B0%E4%B8%BA1/" title="Android 限制EditText输入的文本行数为1" >Android 限制EditText输入的文本行数为1</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言：
+
+android Edittext默认是可以换行的，但当我们用来作为输入账号、密码的时候，是希望它作为一行来展示，并不想让它可以换行。
+
+
+
+
+方法1： 「不建议」
+
+xml设置maxl...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/MAC%E4%B8%8BApktool%E3%80%81dex2jar%E3%80%81jd-gui%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8F%8D%E7%BC%96%E8%AF%91%E3%80%81%E5%9B%9E%E7%BC%96%E8%AF%91%E3%80%81%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/MAC%E4%B8%8BApktool%E3%80%81dex2jar%E3%80%81jd-gui%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%8F%8D%E7%BC%96%E8%AF%91%E3%80%81%E5%9B%9E%E7%BC%96%E8%AF%91%E3%80%81%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="MAC下Apktool、dex2jar、jd-gui的安装和反编译、回编译、重新签名简单使用" >MAC下Apktool、dex2jar、jd-gui的安装和反编译、回编译、重新签名简单使用</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">一、安装
+
+1、安装Apktool
+
+方法1：普通下载安装
+
+ * 下载Apktool
+ * 下载Apktool安装包脚本
+
+macOS：
+下载Mac 包装器脚本（右键单击，将链接另存为apkt...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/%E8%AE%B0%E5%BD%95wget%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-Mac%E5%AE%89%E8%A3%85wget/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/%E8%AE%B0%E5%BD%95wget%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-Mac%E5%AE%89%E8%A3%85wget/" title="记录wget使用详解 &amp; Mac安装wget" >记录wget使用详解 &amp; Mac安装wget</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">一、记录wget使用详解
+
+1、什么是wget
+
+百度百科介绍的wget
+
+2、wget命令详解
+
+来自大牛随性i的文章介绍的wget命令详解
+
+二、Mac安装wget的两种方法
+
+1、手动下载...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-Dialog-%E5%8E%BB%E6%8E%89%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9%E5%B1%82%E3%80%8C%E5%85%A8%E9%80%8F%E6%98%8E%E3%80%8D/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-Dialog-%E5%8E%BB%E6%8E%89%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9%E5%B1%82%E3%80%8C%E5%85%A8%E9%80%8F%E6%98%8E%E3%80%8D/" title="Android Dialog 去掉透明遮罩层「全透明」" >Android Dialog 去掉透明遮罩层「全透明」</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">dialog即使设置透明背景也会有一个蒙层（遮罩层），有时候因为UI设计并不想要这个蒙层。
 
 一行代码搞定
 
 1
 
 
-dialog.getWindow().setDimAmount(0f);</div><p class="readmore"><a href="/2020/10/23/Android-Dialog-%E5%8E%BB%E6%8E%89%E9%80%8F%E6%98%8E%E9%81%AE%E7%BD%A9%E5%B1%82%E3%80%8C%E5%85%A8%E9%80%8F%E6%98%8E%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E5%B8%A7%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E6%80%81%E7%AD%89%E5%BE%85%E5%B1%82/">Android 使用简单帧动画实现一个自定义动态等待层</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
+dialog.getWindow().setDimAmount(0f);</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E5%B8%A7%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E6%80%81%E7%AD%89%E5%BE%85%E5%B1%82/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E5%B8%A7%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E6%80%81%E7%AD%89%E5%BE%85%E5%B1%82/" title="Android 使用简单帧动画实现一个自定义动态等待层" >Android 使用简单帧动画实现一个自定义动态等待层</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
 
 项目中有时候需要自定义等待层，使用帧动画实现一个动态的等待层还是不错的。
 
@@ -19,13 +485,31 @@ dialog.getWindow().setDimAmount(0f);</div><p class="readmore"><a href="/2020/10/
 4
 5
 6
-7
+...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+  
+    
 
-<?xml version="1.0" encoding="utf-8"?>
-<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
-               android:oneshot="false" >
-    <item android:drawable="@drawable/loadin</div><p class="readmore"><a href="/2020/10/23/Android-%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E5%B8%A7%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8A%A8%E6%80%81%E7%AD%89%E5%BE%85%E5%B1%82/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/">Android 自定义dialog学习之——自定义一个提示框</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
+<div class="col-lg-4 col-md-6 col-sm-12 post-item">
+  <div class="post-wrap">
+    
+    <a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/" class="post-image">
+      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+    </a>
+    <div class="post-content">
+      <div class="post-content-wrap">
+        <h3 class="post-title"><a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/" title="Android 自定义dialog学习之——自定义一个提示框" >Android 自定义dialog学习之——自定义一个提示框</a></h3>
+        <div class="post-excerpt">
+          <p class="substr-3">前言
 
 最近项目中觉的Android系统的dialog样式太丑，确实也不太好看，就打算自定义一个dialog来使用。
 
@@ -34,333 +518,148 @@ dialog.getWindow().setDimAmount(0f);</div><p class="readmore"><a href="/2020/10/
 1、布局
 dialog_alert
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-</div><p class="readmore"><a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Mac-%E4%B8%AD-Android-Studio%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E8%B0%83%E6%95%B4%E6%96%B9%E6%B3%95/">Mac 中 Android Studio使用内存调整方法</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Mac下调整Android Studio可使用内存大小
+1...</p>
+        </div>
+      </div>
+      <div class="post-info">
+        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-前言
+  
+</section>
+    <section class="paginator">
+  
+    <a class="extend prev" rel="prev" href="/page/5/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">&gt;</a>
+  
+</section>
+  </div>
+</main>
+  
 
-当使用 MAC 安装完 AS 后，系统会给AS的内存值分配一个默认值，这个默认值是一个通用的，不可能去适配到每台机器。
-默认的值在/Applications/Android Studio.app/Contents/bin/studio.vmoptions这个文件里面
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
 
--Xms256m
--Xmx1280m
--XX:ReservedCodeCacheSize=240m
--XX:+UseConcMarkSweepGC
--XX:Soft</div><p class="readmore"><a href="/2020/10/23/Mac-%E4%B8%AD-Android-Studio%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E8%B0%83%E6%95%B4%E6%96%B9%E6%B3%95/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-ViewFlipper%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%B9%8B%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2%E7%9A%84%E5%AE%9E%E7%8E%B0%E3%80%8C%E5%B8%A6%E6%89%8B%E5%8A%BF%E6%A3%80%E6%B5%8B%E3%80%8D/">Android ViewFlipper控件使用之——图片切换的实现「带手势检测」</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">使用ViewFlipper控件实现图片切换
-参考：ViewFlipper使用详解
-
-前言
-
-ViewFlipper是一个切换控件
-1、一般用于图片的切换
-2、也可以用来添加View，不限定只用于ImageView，也可以是自定义View；只是我们经常利用ViewFlipper来实现ImageView的切换，如果切换自定义的View，使用ViewPager做更方便吧。
-
-一、使用ViewFlipper实现「图片切换」demo案例
-
-ViewFlipper布局：
-
-1
-2
-3
-4
-5
-6
 
 
-<ViewFlipper
-        android:id="@+id/flipper"
-      </div><p class="readmore"><a href="/2020/10/23/Android-ViewFlipper%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%B9%8B%E2%80%94%E2%80%94%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2%E7%9A%84%E5%AE%9E%E7%8E%B0%E3%80%8C%E5%B8%A6%E6%89%8B%E5%8A%BF%E6%A3%80%E6%B5%8B%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-ViewFlipper%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%B9%8B%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E8%BD%AE%E6%92%AD%E5%85%AC%E5%91%8A%E7%9A%84%E5%AE%9E%E7%8E%B0/">Android  ViewFlipper控件使用之——滑动轮播公告的实现</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">使用ViewFlipper控件实现轮播公告
-前言
 
-ViewFlipper是一个切换控件
-1、一般用于图片的切换
-2、也可以用来添加View，不限定只用于ImageView，也可以是自定义View；只是我们经常利用ViewFlipper来实现ImageView的切换，如果切换自定义的View，使用ViewPager做更方便吧。
-
-一、使用ViewFlipper实现轮播公告demo案例
-
-1、布局文件配置：
-
-ViewFlipper布局：
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 
 
-<ViewFlipper
-        android:id="@+id/vf_notice"
-        a</div><p class="readmore"><a href="/2020/10/23/Android-ViewFlipper%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E4%B9%8B%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E8%BD%AE%E6%92%AD%E5%85%AC%E5%91%8A%E7%9A%84%E5%AE%9E%E7%8E%B0/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%EF%BC%9A%E5%90%8D%E7%A7%B0%E3%80%81%E5%9E%8B%E5%8F%B7%E3%80%81%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E5%8F%B7%E3%80%81%E5%8E%82%E5%95%86%E3%80%81%E8%AE%BE%E5%A4%87%E5%88%B6%E9%80%A0%E5%95%86%E3%80%81SDK%E7%89%88%E6%9C%AC%E3%80%81%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E7%AD%89%E7%AD%89/">Android 获取手机设备信息：名称、型号、系统版本号、厂商、设备制造商、SDK版本、系统语言等等</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">常用的设备信息获取方法：
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
 
 
-/**
-    * 设备名称
-    *
-    * @return 设备名称
-    */
-   public static String </div><p class="readmore"><a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E6%89%8B%E6%9C%BA%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%EF%BC%9A%E5%90%8D%E7%A7%B0%E3%80%81%E5%9E%8B%E5%8F%B7%E3%80%81%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E5%8F%B7%E3%80%81%E5%8E%82%E5%95%86%E3%80%81%E8%AE%BE%E5%A4%87%E5%88%B6%E9%80%A0%E5%95%86%E3%80%81SDK%E7%89%88%E6%9C%AC%E3%80%81%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80%E7%AD%89%E7%AD%89/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E5%BA%94%E7%94%A8%E3%80%8C%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%8D%E2%80%94%E2%80%94DeviceID%E3%80%8C%E5%85%BC%E5%AE%B9android-10%EF%BC%88Q%EF%BC%89%E3%80%8D/">Android 获取应用「唯一标识符」——DeviceID「兼容android 10（Q）」</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
-
-更多方法请参考官方文档
-
-一、Android Q 之前
-
-1、所需权限
-需动态申请权限
-
-1
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 
-2、获取方法
-获取设备Id，IMEI等
-
-1
-2
-3
 
 
-TelephonyManager telManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-telManager.getDeviceId();
-telManager.getIme</div><p class="readmore"><a href="/2020/10/23/Android-%E8%8E%B7%E5%8F%96%E5%BA%94%E7%94%A8%E3%80%8C%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%8D%E2%80%94%E2%80%94DeviceID%E3%80%8C%E5%85%BC%E5%AE%B9android-10%EF%BC%88Q%EF%BC%89%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x/">Android Glide集成及使用注意事项——Glide 4.x</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Glide 4.x集成及使用注意事项
-前言
-
-原文请到lmz14大神参考使用
-更多用法请到官方指南参考使用
-
-一、集成
-
-1、project gradle
-
-1
-2
-3
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 
 
-repositories {
-       mavenLocal()
-}
 
 
-2、app gradle
-
-1
-2
-3
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
 
 
-compile 'com.android.support:support-v4:25.3.1'
-compile 'com.github.bumptech.glide:glide:4.0.0'
-annotationProcessor 'com.github.bumptech.glide:compiler:</div><p class="readmore"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-4-x/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-3-x/">Android Glide集成及使用注意事项——Glide 3.x</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Glide 3.x集成及使用注意事项
-前言
-
-更多用法请参考官方指南了解使用。
-
-一、集成
-
-1、project gradle
-
-1
-2
-3
 
 
-repositories {
-        mavenCentral()
-    }
 
 
-2、app gradle
 
-1
-2
-
-
-//glide
-   implementation 'com.github.bumptech.glide:glide:3.8.0'
-
-
-3、混淆
-
-1
-2
-3
-4
-5
-6
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
-#glide
--keep public class * implements com.bumptech.glide.module.GlideMod</div><p class="readmore"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-3-x/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/5/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/22/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">Git 常用命令整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/02/Android-Studio-%E6%9F%A5%E7%9C%8B%E9%A1%B9%E7%9B%AE%E4%B8%ADjar%E5%8C%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB-%E4%BE%9D%E8%B5%96%E6%A0%91-%E7%88%B6%E5%AD%90%E7%BA%A7/">Android Studio 查看项目中jar包依赖关系 依赖树 父子级</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/26/%E5%90%AF%E5%8A%A8AndroidStudio%E6%8A%A5%E9%94%99Missing-essential-plugin-org-jetbrains-android-Please-reinstall-Android-Studio/">启动AndroidStudio报错Missing essential plugin:org.jetbrains.android Please reinstall Android Studio...</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/24/%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9ATask-%E2%80%98xxx%E2%80%99-not-found-in-root-project-%E2%80%98xxx%E2%80%99-Some-candidate%E2%80%A6/">构建项目报错：Task ‘xxx’ not found in root project ‘xxx’. Some candidate…</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/18/Mac%E4%B9%8B%E2%80%94%E2%80%94%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">Mac之——命令行快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/08/Android-11-%E3%80%8C%E5%A4%96%E9%83%A8%E5%AD%98%E5%82%A8%E3%80%8D%E6%9D%83%E9%99%90%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7%E6%A1%86%E6%9E%B6%E6%8E%A8%E8%8D%90/">Android 11 「外部存储」权限适配方案——权限申请框架推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%94%E2%80%94%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2%E6%9F%A5%E8%AF%A2/">SQLite数据库——分页搜索查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/09/Android-File%E6%96%87%E4%BB%B6%E3%80%8C%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%8D%E5%92%8C%E3%80%8C%E5%88%A0%E9%99%A4%E3%80%8D%E6%93%8D%E4%BD%9C/">Android File文件「重命名」和「删除」操作</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>
+
+
+
+
+
+
+
+
+
+
+
+</html>
