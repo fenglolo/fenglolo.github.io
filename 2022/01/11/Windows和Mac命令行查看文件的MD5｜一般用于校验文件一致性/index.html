@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Windows和Mac命令行查看文件的MD5｜一般用于校验文件一致性 - 丰囖囖的博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="@[toc]
+
+一、Windows自带命令行查看文件的...">
+  <meta name="author" content="fenglolo">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Windows和Mac命令行查看文件的MD5｜一般用于校验文件一致性</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Windows和Mac命令行查看文件的MD5｜一般用于校验文件一致性</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 11, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>865</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>@[toc]</p>
+<hr>
+<h1 id="一、Windows自带命令行查看文件的MD5、SHA1、SHA256"><a href="#一、Windows自带命令行查看文件的MD5、SHA1、SHA256" class="headerlink" title="一、Windows自带命令行查看文件的MD5、SHA1、SHA256"></a>一、Windows自带命令行查看文件的MD5、SHA1、SHA256</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//D:\1.exe 为待测试文件路径 </span></span><br><span class="line">certutil -hashfile D:\<span class="number">1.</span>exe MD5</span><br><span class="line">certutil -hashfile D:\<span class="number">1.</span>exe SHA1</span><br><span class="line">certutil -hashfile D:\<span class="number">1.</span>exe SHA256</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="二、Mac命令行生成文件的MD5"><a href="#二、Mac命令行生成文件的MD5" class="headerlink" title="二、Mac命令行生成文件的MD5"></a>二、Mac命令行生成文件的MD5</h1><h2 id="1、Mac命令行生成「字符串」的MD5"><a href="#1、Mac命令行生成「字符串」的MD5" class="headerlink" title="1、Mac命令行生成「字符串」的MD5"></a>1、Mac命令行生成「字符串」的MD5</h2><ol>
+<li>使用echo和管道</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;string&quot;</span> | md5</span><br><span class="line">b80fa55b1234f1935cea559d9efbc39a</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>直接使用md5</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md5 &lt;&lt;&lt; <span class="string">&quot;string&quot;</span></span><br><span class="line">b80fa55b1234f1935cea559d9efbc39a</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用md5 -s “string”</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md5 -s <span class="string">&quot;string&quot;</span></span><br><span class="line">MD5 (<span class="string">&quot;string&quot;</span>) = b45cffe084dd3d20d928bee85e7b0f21</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第三个的结果和前两个的结果不通的原因是 echo 默认会在行尾追加一个换行符，可以通过echo -n “string” 或者 echo “string\c”来去掉换行符</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo -n <span class="string">&quot;string&quot;</span> | md5</span><br><span class="line">b45cffe084dd3d20d928bee85e7b0f21</span><br><span class="line"> </span><br><span class="line">echo <span class="string">&quot;string\c&quot;</span> | md5</span><br><span class="line">b45cffe084dd3d20d928bee85e7b0f21</span><br></pre></td></tr></table></figure>
+<h2 id="2、Mac命令行生成「文件」的MD5"><a href="#2、Mac命令行生成「文件」的MD5" class="headerlink" title="2、Mac命令行生成「文件」的MD5"></a>2、Mac命令行生成「文件」的MD5</h2><blockquote>
+<p>直接 md5+文件路径 </p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apple@fenglolodeMacBook-Pro ~ % md5 /Users/apple/Desktop/index.html </span><br><span class="line">MD5 (/Users/apple/Desktop/index.html) = <span class="number">4732e3</span>fb9a9999a658fe1cbb429fc545</span><br></pre></td></tr></table></figure>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>fenglolo</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2022/01/11/Windows%E5%92%8CMac%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%EF%BD%9C%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8E%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E4%B8%80%E8%87%B4%E6%80%A7/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;01&#x2F;11&#x2F;Windows%E5%92%8CMac%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%EF%BD%9C%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8E%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E4%B8%80%E8%87%B4%E6%80%A7&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2022&#x2F;01&#x2F;11&#x2F;Windows%E5%92%8CMac%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%EF%BD%9C%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8E%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E4%B8%80%E8%87%B4%E6%80%A7&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/01/10/Android%E4%B8%AD%E4%B8%80%E4%B8%AAapp%E5%90%AF%E5%8A%A8%E5%8F%A6%E4%B8%80%E4%B8%AAapp%EF%BD%9C%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80app/">Android中一个app启动另一个app｜从浏览器打开app<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Windows%E8%87%AA%E5%B8%A6%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%E3%80%81SHA1%E3%80%81SHA256"><span class="toc-text">一、Windows自带命令行查看文件的MD5、SHA1、SHA256</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6%E7%9A%84MD5"><span class="toc-text">二、Mac命令行生成文件的MD5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%9F%E6%88%90%E3%80%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%8D%E7%9A%84MD5"><span class="toc-text">1、Mac命令行生成「字符串」的MD5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Mac%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%9F%E6%88%90%E3%80%8C%E6%96%87%E4%BB%B6%E3%80%8D%E7%9A%84MD5"><span class="toc-text">2、Mac命令行生成「文件」的MD5</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
