@@ -1,301 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2021/01/14/HashSet%E5%92%8CLinkedHashSet%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">HashSet和LinkedHashSet的比较使用</a></h2><div class="post-meta"><p><span class="date">2021-01-14</span></p></div><div class="post-content">前言
+HashSet
 
-
-<!DOCTYPE html>
-<html lang="en" color-mode=light>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>丰囖囖的博客</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="google" content="notranslate" />
-  
-  <meta name="description" content="生如夏花 汝予可荆">
-  <meta name="author" content="fenglolo">
-  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
-  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
-  
-    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
-    <meta rel="msapplication-TileColor" content="#000000">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
-    
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
-
-  
-
-  
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  
-
-  
-    
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
-
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
-
-      
-  
-
-  <script>
-    var CONFIG = window.CONFIG || {};
-    var ZHAOO = window.ZHAOO || {};
-    CONFIG = {
-      isHome: true,
-      fancybox: true,
-      pjax: false,
-      loading: {
-        gif: '/images/theme/loading.gif',
-        lottie: ''
-      },
-      lazyload: {
-        enable: true,
-        only_post: 'false',
-        loading: {
-          gif: '/images/theme/loading.gif',
-          lottie: ''
-        }
-      },
-      donate: {
-        enable: true,
-        alipay: 'https://pic.izhaoo.com/alipay.jpg',
-        wechat: 'https://pic.izhaoo.com/wechat.jpg'
-      },
-      galleries: {
-        enable: true
-      },
-      fab: {
-        enable: true,
-        always_show: false
-      },
-      carrier: {
-        enable: true
-      },
-      daovoice: {
-        enable: false
-      },
-      preview: {
-        background: {
-          default: '',
-          api: ''
-        },
-        motto: {
-          default: '我在开了灯的床头下，想问问自己的心啊。',
-          typing: true,
-          api: 'https://v2.jinrishici.com/one.json',
-          data_contents: '["data","content"]'
-        },
-      },
-      qrcode: {
-        enable: true,
-        type: 'url',
-        image: 'https://pic.izhaoo.com/weapp-code.jpg',
-      },
-      toc: {
-        enable: true
-      },
-      scrollbar: {
-        type: 'default'
-      },
-      notification: {
-        enable: false,
-        delay: 4500,
-        list: '',
-        page_white_list: '',
-        page_black_list: ''
-      },
-      search: {
-        enable: false,
-        path: 'search.xml'
-      }
-    }
-  </script>
-
-  
-
-  
-
-<meta name="generator" content="Hexo 5.2.0"></head>
-
-<body class="lock-screen">
-  <div class="loading" id="loading"></div>
-  
-    
-
-
-  <nav class="navbar">
-    <div class="left">
-      
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-    </div>
-    <div class="center"> </div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
-
-  
-  
-
-<nav class="menu">
-  <div class="menu-container">
-    <div class="menu-close">
-      <i class="iconfont iconbaseline-close-px"></i>
-    </div>
-    <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline "> 首页</a>
-      </li><li class="menu-item">
-        <a href="/galleries/ " class="underline "> 摄影</a>
-      </li><li class="menu-item">
-        <a href="/archives/ " class="underline "> 归档</a>
-      </li><li class="menu-item">
-        <a href="/tags/ " class="underline "> 标签</a>
-      </li><li class="menu-item">
-        <a href="/categories/ " class="underline "> 分类</a>
-      </li><li class="menu-item">
-        <a href="/about/ " class="underline "> 关于</a>
-      </li></ul>
-    
-      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-    
-  </div>
-</nav>
-  <main id="main">
-  
-    <div class="preview">
-  <!-- <nav class="navbar j-navbar-menu">
-    <i class="iconfont iconmenu"></i>
-  </nav> -->
-  <div class="preview-image">
-    
-        
-              <div class="preview-overlay">
-                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                  <defs>
-                    <path id="gentle-wave"
-                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                  </defs>
-                  <g class="preview-parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
-                  </g>
-                </svg>
-              </div>
-              
-  </div>
-  <div class="preview-motto-wrapper">
-    <h2 class="preview-motto" id="motto">
-      
-    </h2>
-    
-      <span class="preview-cursor">_</span>
-      
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-</div>
-  
-  <div class="container" id="container">
-    <section class="row post">
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/" title="Mac AndroidStudio 中安装plantUML插件" >Mac AndroidStudio 中安装plantUML插件</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">Mac版 AS 安装plantUML插件
+HashSet有以下特点
+—— 不能保证元素的排列顺序，顺序有可能发生变化
+—— 不是同步的
+—— 集合元素可以是null,但只能放入一个null
+当向HashSet结合中存入一个元素时，HashSet会调用该对象的hashCode()方法来得到该对象的hashCode值，然后根据 hashCode值来决定该对象在HashSet中存储位置。
+简单的说，HashSet集合判断两个元素相等的标准是两个对象通过equals方法比较相等，并且两个对象的hashCode()方法返回值相 等
+注意，如果要把一个对象放入HashSet中，重写该对象对应类的equals方法，也应该重写</div><p class="readmore"><a href="/2021/01/14/HashSet%E5%92%8CLinkedHashSet%E7%9A%84%E6%AF%94%E8%BE%83%E4%BD%BF%E7%94%A8/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/">Mac AndroidStudio 中安装plantUML插件</a></h2><div class="post-meta"><p><span class="date">2021-01-13</span></p></div><div class="post-content">Mac版 AS 安装plantUML插件
 
 1、打开setting面板；
 2、找到Plugins；
 3、在搜索框中输入plantUML，进行搜索；
 在这里插入图片描述
-4、点击安装插件，并重启A...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 13, 2021</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+4、点击安装插件，并重启AS；
+5、File双击 -> New，就可以看到一个PlantUML File了。
+6、新建一个PlantUML File格式的文件，就可以用代码来愉快的画图了。
+在这里插入图片描述
 
-  
-    
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/" title="PlantUML-程序员绘图工具「流程图、用例图、时序图等等」" >PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">前言
+
+
+PlantUML语法使用详见
+
+https://blog.csdn.net/fenglolo/article/details/112562026</div><p class="readmore"><a href="/2021/01/13/Mac-AndroidStudio-%E4%B8%AD%E5%AE%89%E8%A3%85plantUML%E6%8F%92%E4%BB%B6/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/">PlantUML-程序员绘图工具「流程图、用例图、时序图等等」</a></h2><div class="post-meta"><p><span class="date">2021-01-13</span></p></div><div class="post-content">前言
 1、PlantUML 是一个开源项目，支持快速绘制时序图、用例图、类图、活动图、组件图、状态图、对象图、部署图等。
-2、PlantUML拥有独立的一套语法，实现代码控制画图，便于后期的修改...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 13, 2021</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+2、PlantUML拥有独立的一套语法，实现代码控制画图，便于后期的修改等操作
 
-  
-    
+参考文献
+1、https://plantuml.com/zh/activity-diagram-beta
+2、https://www.yuque.com/yuque/help/editor-puml
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/" title="Android 调试桥 (adb)" >Android 调试桥 (adb)</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">Android 调试桥 (adb)
+PlantUML语法
+
+
+
+简单活动图
+
+活动标签(activity label)以冒号开始，以分号结束。
+
+1
+2
+3
+4
+5
+6
+
+
+@startuml
+
+:Hello world;
+:这是</div><p class="readmore"><a href="/2021/01/13/PlantUML-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E3%80%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E7%94%A8%E4%BE%8B%E5%9B%BE%E3%80%81%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%AD%89%E7%AD%89%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/">Android 调试桥 (adb)</a></h2><div class="post-meta"><p><span class="date">2020-11-30</span></p></div><div class="post-content">Android 调试桥 (adb)
 1- 基本用法
 
 
@@ -307,94 +62,60 @@ adb 命令的基本语法如下：
 1
 
 
-adb [-d|-e|-s ] 
+adb [-d|-e|-s <serialNumber>] <command>
 
 
-如果只有一个设备/模拟器连接时，可以...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 30, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+如果只有一个设备/模拟器连接时，可以省略掉 [-d|-e|-s ] 这一部分，直接使用 adb 。
 
-  
-    
+如果有多个设备/模拟器连接，则需要为命令指定目标设备。
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/11/18/Mac%E4%B8%8Bjenkins%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/11/18/Mac%E4%B8%8Bjenkins%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/" title="Mac下jenkins安装步骤" >Mac下jenkins安装步骤</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">前言
+参数含义-d指定当前唯一通过 USB 连接的 Android 设备为命令目标-e指定当前唯一运行的模拟器为命令目标-s <**serialNumber**>指定相应 serialNumber 号的设备/模拟器为命令目标在多个设备/模拟器</div><p class="readmore"><a href="/2020/11/30/Android-%E8%B0%83%E8%AF%95%E6%A1%A5-adb/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/11/18/Mac%E4%B8%8Bjenkins%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/">Mac下jenkins安装步骤</a></h2><div class="post-meta"><p><span class="date">2020-11-18</span></p></div><div class="post-content">前言
 
 本文写的是在自己本机上部署jenkins，如果是要部署到服务器，则需要另外配置一些东西。
 
 jenkins下载、安装、配置、新建项目
 
-1、从官网https://jenkins.io/ ...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 18, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+1、从官网https://jenkins.io/ 上下载最新的pkg安装包,进行安装。
 
-  
-    
+ * 然后一直点击next…就行
+   在这里插入图片描述
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/11/11/%E5%AE%89%E5%8D%93%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%EF%BC%9A%E3%80%8Cappium-vscode%E3%80%8D-%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E4%BD%BF%E7%94%A8/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/11/11/%E5%AE%89%E5%8D%93%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%EF%BC%9A%E3%80%8Cappium-vscode%E3%80%8D-%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E4%BD%BF%E7%94%A8/" title="安卓自动化测试工具：「appium + vscode」 安装、配置、使用" >安卓自动化测试工具：「appium + vscode」 安装、配置、使用</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">一、Appium
+2、安装完成之后，Safari可能会自动打开，如果没有自动打开，打开浏览器，输入http://localhost:8080
+
+在这里插入图片描述
+这个时候可能会报一个错误。如果出现了这面的问题。这个时候如果你重启电脑会发现Jenkins给你新增了一个用户，名字就叫Jenkins，不过这个时候你不知道密码</div><p class="readmore"><a href="/2020/11/18/Mac%E4%B8%8Bjenkins%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/11/11/%E5%AE%89%E5%8D%93%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%EF%BC%9A%E3%80%8Cappium-vscode%E3%80%8D-%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E4%BD%BF%E7%94%A8/">安卓自动化测试工具：「appium + vscode」 安装、配置、使用</a></h2><div class="post-meta"><p><span class="date">2020-11-11</span></p></div><div class="post-content">一、Appium
 
 1、Appium简介
 
 Appium是一个开源测试自动化框架，可用于原生，混合和移动Web应用程序测试。
 
-它使用WebDriver协议驱动IOS，Android和Windo...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 11, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+它使用WebDriver协议驱动IOS，Android和Windows应用程序。
 
-  
-    
+2、关于Appium的文档
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/" title="Mac通过命令行编辑保存文件" >Mac通过命令行编辑保存文件</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">1. cd 文件所在目录
+Appium官网
+
+Appiumgithub主页
+
+官方中文文档
+
+3、下载及使用Appium
+
+3.1、到appium官网下载安装即可
+
+3.2、参考文档
+
+安卓平台自动化测试之Appium工具
+
+3.3、配置appium
+
+3.3.1、打开appium
+
+在这里插入图片描述
+3.3.2、配置sdk和jdk路径
+
+在这里插入图片描述
+配置完成后，点击 S</div><p class="readmore"><a href="/2020/11/11/%E5%AE%89%E5%8D%93%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%EF%BC%9A%E3%80%8Cappium-vscode%E3%80%8D-%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E4%BD%BF%E7%94%A8/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/">Mac通过命令行编辑保存文件</a></h2><div class="post-meta"><p><span class="date">2020-11-09</span></p></div><div class="post-content">1. cd 文件所在目录
 
 2. vi 文件名.文件后缀
 
@@ -402,31 +123,7 @@ Appium是一个开源测试自动化框架，可用于原生，混合和移动We
 
 4. esc退出插入模式
 
-5. shift + ：wq 保存文件并退出文本编辑模式</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 09, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/11/09/%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7-%E3%80%8Chexo-github%E5%8D%9A%E5%AE%A2%E3%80%8D%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E7%BC%96%E5%86%99blog/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/11/09/%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7-%E3%80%8Chexo-github%E5%8D%9A%E5%AE%A2%E3%80%8D%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E7%BC%96%E5%86%99blog/" title="博客工具:「hexo+github博客」安装、配置、编写blog" >博客工具:「hexo+github博客」安装、配置、编写blog</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">前言
+5. shift + ：wq 保存文件并退出文本编辑模式</div><p class="readmore"><a href="/2020/11/09/Mac%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%BE%91%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/11/09/%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7-%E3%80%8Chexo-github%E5%8D%9A%E5%AE%A2%E3%80%8D%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E7%BC%96%E5%86%99blog/">博客工具:「hexo+github博客」安装、配置、编写blog</a></h2><div class="post-meta"><p><span class="date">2020-11-09</span></p></div><div class="post-content">前言
 
 hexo+github是一个博客框架,可以很简洁的在本地搭建一个属于自己的blog,有各种不同的自定义风格,同时可以把自己的blog同步到github进行保存
 
@@ -435,204 +132,52 @@ hexo+github是一个博客框架,可以很简洁的在本地搭建一个属于�
 
 安装+配置
 
-直接...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 09, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/" title="Android 内存泄漏「检测工具」之——LeakCanary2.0" >Android 内存泄漏「检测工具」之——LeakCanary2.0</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">前言
-
-在Android的性能优化中，内存优化是必不可少的点，而内存优化最重要的一点就是解决内存泄漏的问题，在Android的内存泄漏分析工具也不少，比如PC端的有：AndroidStudio自...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android-monkey%E6%B5%8B%E8%AF%95adb%E5%91%BD%E4%BB%A4/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android-monkey%E6%B5%8B%E8%AF%95adb%E5%91%BD%E4%BB%A4/" title="Android monkey测试adb命令" >Android monkey测试adb命令</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">Android monkey测试
-
-通用monkey测试命令：
-adb shell monkey
--p com.hoomsun.hxb（包名）
-–throttle 100
-–ignore-cra...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-</section>
-    <section class="paginator">
-  
-    <a class="extend prev" rel="prev" href="/page/4/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">&gt;</a>
-  
-</section>
-  </div>
-</main>
-  
-
-<footer class="footer">
-  <div class="footer-social"><a 
-        href="tencent://message/?Menu=yes&uin=894519210 "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#12B7F5'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconQQ "></i>
-      </a><a 
-        href="javascript:; "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#09BB07'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconwechat-fill "></i>
-      </a><a 
-        href="https://www.instagram.com/izhaoo/ "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#DA2E76'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconinstagram "></i>
-      </a><a 
-        href="https://github.com/zhaoo "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#9f7be1'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  icongithub-fill "></i>
-      </a><a 
-        href="mailto:izhaoo@163.com "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color=#FF3B00" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconmail"></i>
-      </a></div>
-  
-    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-  
-</footer>
-  
-      <div class="fab fab-plus">
-    <i class="iconfont iconplus"></i>
-  </div>
-  
-  
-  
-  <div class="fab fab-up">
-    <i class="iconfont iconcaret-up"></i>
-  </div>
-  
-  
-  
-    
-<script src="/js/color-mode.js"></script>
-
-  
-  
-</body>
-
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+直接给链接,博主写的非常详细
+1> Mac 系统下搭建hexo个人博客
+2>Github+Hexo搭建个人博客
 
 
 
 
+hexo主题
 
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-
-
-
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+有的小伙伴想定制自己独特的主题风格,hexo也可以满足你哦
+1>hexo官方提供的主题推荐
 
 
 
 
+编写blog
+
+一个blog最主要还是编辑文章,主页搭建的再好看也的需要有干货才行啊是不
+
+1、创建新的文章
+
+1
 
 
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+hexo new "name blog的标题"
 
 
+2</div><p class="readmore"><a href="/2020/11/09/%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7-%E3%80%8Chexo-github%E5%8D%9A%E5%AE%A2%E3%80%8D%E5%AE%89%E8%A3%85%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E7%BC%96%E5%86%99blog/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/">Android 内存泄漏「检测工具」之——LeakCanary2.0</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
+
+在Android的性能优化中，内存优化是必不可少的点，而内存优化最重要的一点就是解决内存泄漏的问题，在Android的内存泄漏分析工具也不少，比如PC端的有：AndroidStudio自带的Android Profiler、MAT等工具；手机端也有，就是我们今天要介绍的LeakCanary
+
+LeakCanary2.0原理
+
+详见LeakCanary官网文档
+
+LeakCanary2.0使用
+
+ 1. 集成
+
+ LeakCanary2.0只需要在build.gradle中添加依赖即可
+
+1
+2
+3
+4
 
 
-<script src="/js/utils.js"></script>
-<script src="/js/script.js"></script>
-
-
-
-
-
-
-
-  <script>
-    (function () {
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      } else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
+dependencies{
+	// debugImplementation be</div><p class="readmore"><a href="/2020/10/23/Android-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E3%80%8C%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7%E3%80%8D%E4%B9%8B%E2%80%94%E2%80%94LeakCanary2-0/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/4/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/05/13/Android%E8%87%AA%E5%AE%9A%E4%B9%89View%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7attrs-xml%E7%9A%84%E4%BD%BF%E7%94%A8/">Android自定义View——自定义属性attrs.xml的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/30/Android%E6%8A%A5%E9%94%99%E2%80%94%E2%80%94this-Activity-already-has-an-action-bar-supplied-by-the-window-decor-Do-not-request-Wind/">Android报错——this Activity already has an action bar supplied by the window decor. Do not request Wind</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/24/SVN%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0GIT%E5%B9%B6%E4%BF%9D%E7%95%99commit%E8%AE%B0%E5%BD%95-%E8%8E%B7%E5%8F%96Git%E6%8F%90%E4%BA%A4%E8%AE%A1%E6%95%B0/">SVN项目迁移到GIT并保留commit记录 && 获取Git提交计数</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/11/Windows%E5%92%8CMac%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%EF%BD%9C%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8E%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E4%B8%80%E8%87%B4%E6%80%A7/">Windows和Mac命令行查看文件的MD5｜一般用于校验文件一致性</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/Android%E4%B8%AD%E4%B8%80%E4%B8%AAapp%E5%90%AF%E5%8A%A8%E5%8F%A6%E4%B8%80%E4%B8%AAapp%EF%BD%9C%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80app/">Android中一个app启动另一个app｜从浏览器打开app</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/12/13/Android-Intent%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8getIntent-%E6%8E%A5%E6%94%B6%E4%B8%8D%E5%88%B0%EF%BC%8CIntent%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E4%B8%8EActivity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8FsingleTask%E7%9A%84%E5%85%B3%E7%B3%BB/">Android Intent传递数据使用getIntent()接收不到，Intent传递数据与Activity启动模式singleTask的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/24/Android-%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%88%E5%8F%AF%E8%A7%86%E6%8E%A7%E4%BB%B6%E3%80%81%E5%B8%83%E5%B1%80%EF%BC%89-%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6%E6%88%AA%E5%9B%BE%EF%BC%88%E4%B8%8D%E5%8F%AF%E8%A7%86%E6%8E%A7%E4%BB%B6%E3%80%81%E5%B8%83%E5%B1%80%EF%BC%89/">Android 获取屏幕截图（可视控件、布局） 获取控件截图（不可视控件、布局）</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/24/Android-view%E8%BD%ACBitmap%EF%BC%88%E5%B0%86%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%E8%BD%AC%E6%88%90Bitmap%EF%BC%89-Bitmap%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9B%B8%E5%86%8C/">Android view转Bitmap（将布局文件转成Bitmap）&& Bitmap保存到本地相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>

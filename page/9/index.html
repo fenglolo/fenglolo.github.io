@@ -1,301 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android%E9%A1%B9%E7%9B%AE%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E4%B9%8B%E2%80%94%E2%80%94productFlavors%E7%9A%84%E7%94%A8%E6%B3%95/">Android项目多渠道打包之——productFlavors的用法</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">productFlavors的用处
+ * 创建不同的产品并为不同产品分配专有属性
+ * 配置不同的环境并为不同环境配置专有信息（sit、uat、pro…）
+
+一、创建不同的「产品风味」，并为不同产品分配「专有属性」
+
+在app:级别下的gradle文件中，加入productFlavors,并在productFlavors下创建产品A与B
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
 
 
-<!DOCTYPE html>
-<html lang="en" color-mode=light>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>丰囖囖的博客</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="google" content="notranslate" />
-  
-  <meta name="description" content="生如夏花 汝予可荆">
-  <meta name="author" content="fenglolo">
-  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
-  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
-  
-    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
-    <meta rel="msapplication-TileColor" content="#000000">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
-    
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
-
-  
-
-  
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  
-
-  
-    
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
-
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
-
-      
-  
-
-  <script>
-    var CONFIG = window.CONFIG || {};
-    var ZHAOO = window.ZHAOO || {};
-    CONFIG = {
-      isHome: true,
-      fancybox: true,
-      pjax: false,
-      loading: {
-        gif: '/images/theme/loading.gif',
-        lottie: ''
-      },
-      lazyload: {
-        enable: true,
-        only_post: 'false',
-        loading: {
-          gif: '/images/theme/loading.gif',
-          lottie: ''
-        }
-      },
-      donate: {
-        enable: true,
-        alipay: 'https://pic.izhaoo.com/alipay.jpg',
-        wechat: 'https://pic.izhaoo.com/wechat.jpg'
-      },
-      galleries: {
-        enable: true
-      },
-      fab: {
-        enable: true,
-        always_show: false
-      },
-      carrier: {
-        enable: true
-      },
-      daovoice: {
-        enable: false
-      },
-      preview: {
-        background: {
-          default: '',
-          api: ''
-        },
-        motto: {
-          default: '我在开了灯的床头下，想问问自己的心啊。',
-          typing: true,
-          api: 'https://v2.jinrishici.com/one.json',
-          data_contents: '["data","content"]'
-        },
-      },
-      qrcode: {
-        enable: true,
-        type: 'url',
-        image: 'https://pic.izhaoo.com/weapp-code.jpg',
-      },
-      toc: {
-        enable: true
-      },
-      scrollbar: {
-        type: 'default'
-      },
-      notification: {
-        enable: false,
-        delay: 4500,
-        list: '',
-        page_white_list: '',
-        page_black_list: ''
-      },
-      search: {
-        enable: false,
-        path: 'search.xml'
-      }
-    }
-  </script>
-
-  
-
-  
-
-<meta name="generator" content="Hexo 5.2.0"></head>
-
-<body class="lock-screen">
-  <div class="loading" id="loading"></div>
-  
-    
-
-
-  <nav class="navbar">
-    <div class="left">
-      
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-    </div>
-    <div class="center"> </div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
-
-  
-  
-
-<nav class="menu">
-  <div class="menu-container">
-    <div class="menu-close">
-      <i class="iconfont iconbaseline-close-px"></i>
-    </div>
-    <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline "> 首页</a>
-      </li><li class="menu-item">
-        <a href="/galleries/ " class="underline "> 摄影</a>
-      </li><li class="menu-item">
-        <a href="/archives/ " class="underline "> 归档</a>
-      </li><li class="menu-item">
-        <a href="/tags/ " class="underline "> 标签</a>
-      </li><li class="menu-item">
-        <a href="/categories/ " class="underline "> 分类</a>
-      </li><li class="menu-item">
-        <a href="/about/ " class="underline "> 关于</a>
-      </li></ul>
-    
-      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-    
-  </div>
-</nav>
-  <main id="main">
-  
-    <div class="preview">
-  <!-- <nav class="navbar j-navbar-menu">
-    <i class="iconfont iconmenu"></i>
-  </nav> -->
-  <div class="preview-image">
-    
-        
-              <div class="preview-overlay">
-                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                  <defs>
-                    <path id="gentle-wave"
-                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                  </defs>
-                  <g class="preview-parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
-                  </g>
-                </svg>
-              </div>
-              
-  </div>
-  <div class="preview-motto-wrapper">
-    <h2 class="preview-motto" id="motto">
-      
-    </h2>
-    
-      <span class="preview-cursor">_</span>
-      
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-</div>
-  
-  <div class="container" id="container">
-    <section class="row post">
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E4%B9%8B%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93Library%E4%B8%AD%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E4%B9%8B%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93Library%E4%B8%AD%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" title="Android代码混淆之——依赖库Library中混淆配置方法" >Android代码混淆之——依赖库Library中混淆配置方法</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">应用场景
+productFlavors {
+    //新建产品A
+    A {
+      </div><p class="readmore"><a href="/2020/10/23/Android%E9%A1%B9%E7%9B%AE%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E4%B9%8B%E2%80%94%E2%80%94productFlavors%E7%9A%84%E7%94%A8%E6%B3%95/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E4%B9%8B%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93Library%E4%B8%AD%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">Android代码混淆之——依赖库Library中混淆配置方法</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">应用场景
  * 我们自己新建一个Library给主工程引用；
    
    
  * 引入三方Library给项目主工程引用；
    
-   这种情况下，一般我们需要对Library中的代码配置一...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+   这种情况下，一般我们需要对Library中的代码配置一些混淆规则，以免打混淆包某些方法不生效而无法使用。
+   
+   
 
-  
-    
+一、在app模块写混淆规则（不建议使用）
+这种形式比较简单无脑，全部的混淆规则都写在了app模块里面，如果app模块依赖很多个Library模块那么app模块中的混淆规则将会非常的庞大，不利于代码的维护。
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Windows-10-%E8%87%AA%E5%B8%A6%E8%BE%93%E5%85%A5%E6%B3%95%E5%BE%AE%E8%BD%AF%E6%8B%BC%E9%9F%B3%E3%80%8C%E7%AE%80%E4%BD%93%E3%80%8D%E3%80%8C%E7%B9%81%E4%BD%93%E3%80%8D%E5%88%87%E6%8D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Windows-10-%E8%87%AA%E5%B8%A6%E8%BE%93%E5%85%A5%E6%B3%95%E5%BE%AE%E8%BD%AF%E6%8B%BC%E9%9F%B3%E3%80%8C%E7%AE%80%E4%BD%93%E3%80%8D%E3%80%8C%E7%B9%81%E4%BD%93%E3%80%8D%E5%88%87%E6%8D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Windows 10 自带输入法微软拼音「简体」「繁体」切换快捷键" >Windows 10 自带输入法微软拼音「简体」「繁体」切换快捷键</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">快捷键：Ctrl + Shift + F
+使用app模块编写所有混淆命令是基于Library模块当中不再编写混淆命令为前提。
+也就是Library模块中minifyEna</div><p class="readmore"><a href="/2020/10/23/Android%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E4%B9%8B%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93Library%E4%B8%AD%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Windows-10-%E8%87%AA%E5%B8%A6%E8%BE%93%E5%85%A5%E6%B3%95%E5%BE%AE%E8%BD%AF%E6%8B%BC%E9%9F%B3%E3%80%8C%E7%AE%80%E4%BD%93%E3%80%8D%E3%80%8C%E7%B9%81%E4%BD%93%E3%80%8D%E5%88%87%E6%8D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/">Windows 10 自带输入法微软拼音「简体」「繁体」切换快捷键</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">快捷键：Ctrl + Shift + F
 
-经常无缘无故的不知道点击了什么导致输入法变成繁体，关键是不太记事每次都要查询一番，还是记下来吧。</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android-Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android-Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/" title="Android Studio常用快捷键(Mac)" >Android Studio常用快捷键(Mac)</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">搜索查看类
+经常无缘无故的不知道点击了什么导致输入法变成繁体，关键是不太记事每次都要查询一番，还是记下来吧。</div><p class="readmore"><a href="/2020/10/23/Windows-10-%E8%87%AA%E5%B8%A6%E8%BE%93%E5%85%A5%E6%B3%95%E5%BE%AE%E8%BD%AF%E6%8B%BC%E9%9F%B3%E3%80%8C%E7%AE%80%E4%BD%93%E3%80%8D%E3%80%8C%E7%B9%81%E4%BD%93%E3%80%8D%E5%88%87%E6%8D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/">Android Studio常用快捷键(Mac)</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">搜索查看类
 
 在这里插入图片描述
 编辑类
@@ -311,31 +74,23 @@
 选择, 移动
 在这里插入图片描述
 
-格式化...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+格式化
+在这里插入图片描述
 
-  
-    
+注释
+在这里插入图片描述
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AEdebug%E5%BC%80%E5%85%B3%E6%96%B9%E5%BC%8F/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AEdebug%E5%BC%80%E5%85%B3%E6%96%B9%E5%BC%8F/" title="手机Web前端调试页面之——设置debug开关方式" >手机Web前端调试页面之——设置debug开关方式</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">条件：
+运行调试类
+在这里插入图片描述
+
+测试类
+在这里插入图片描述
+
+版本控制类
+在这里插入图片描述
+
+窗口类
+在这里插入图片描述</div><p class="readmore"><a href="/2020/10/23/Android-Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AEdebug%E5%BC%80%E5%85%B3%E6%96%B9%E5%BC%8F/">手机Web前端调试页面之——设置debug开关方式</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">条件：
 android4.4+
 
 配置
@@ -344,113 +99,64 @@ android4.4+
 1
 
 
-WebView.setWebC...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+WebView.setWebContentsDebuggingEnabled(true);
 
-  
-    
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android-Studio-%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98clean-project%E4%B8%8Einvalidate-caches%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3%E9%A1%B9%E7%9B%AE%E4%B8%80%E7%89%87%E6%8A%A5%E7%BA%A2%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E7%BC%96%E8%AF%91/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android-Studio-%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98clean-project%E4%B8%8Einvalidate-caches%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3%E9%A1%B9%E7%9B%AE%E4%B8%80%E7%89%87%E6%8A%A5%E7%BA%A2%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E7%BC%96%E8%AF%91/" title="Android Studio 清理缓存clean project与invalidate caches——解决项目一片报红，但是可以正常编译" >Android Studio 清理缓存clean project与invalidate caches——解决项目一片报红，但是可以正常编译</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">报错现象：
+使用场景
+1.测试包
+如果团队中有Android开发人员能够提供测试包，只要在测试包中开启Webview的debug模式就可以了。
+
+2.线上包
+对于线上的APP，一般debug开关都是关闭的，这就需要借助第三方工具，才能将debug开关打开，这个工具就是Xposed和WebviewDebugHook。
+
+Xposed是一个框架，能够集成</div><p class="readmore"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AEdebug%E5%BC%80%E5%85%B3%E6%96%B9%E5%BC%8F/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-Studio-%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98clean-project%E4%B8%8Einvalidate-caches%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3%E9%A1%B9%E7%9B%AE%E4%B8%80%E7%89%87%E6%8A%A5%E7%BA%A2%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E7%BC%96%E8%AF%91/">Android Studio 清理缓存clean project与invalidate caches——解决项目一片报红，但是可以正常编译</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">报错现象：
 
  1. Android studio 打开项目有时找不到R文件、 导入的资源、布局 、 jar包等等资源；
- 2. Android studio打开项目一片报红，但是项目可以正常b...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+ 2. Android studio打开项目一片报红，但是项目可以正常build打包；
 
-  
-    
+很有可能是studio 缓存造成的。
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Android-R-11-app-targetSdkVersion30%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%E4%B9%8B%E2%80%94%E2%80%94%E7%9B%B8%E5%86%8C%E9%80%89%E6%8B%A9%E5%9B%BE%E7%89%87%E9%BB%91%E5%B1%8F%E7%8E%B0%E8%B1%A1/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Android-R-11-app-targetSdkVersion30%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%E4%B9%8B%E2%80%94%E2%80%94%E7%9B%B8%E5%86%8C%E9%80%89%E6%8B%A9%E5%9B%BE%E7%89%87%E9%BB%91%E5%B1%8F%E7%8E%B0%E8%B1%A1/" title="Android R(11) app targetSdkVersion30遇到的那些坑之——相册选择图片黑屏现象" >Android R(11) app targetSdkVersion30遇到的那些坑之——相册选择图片黑屏现象</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">问题：
+解决方案：
+
+方法1：
+
+ 工具栏 Build –> lean project
+在这里插入图片描述
+
+方法2：
+
+使用invalidate caches restart
+在这里插入图片描述
+在这里插入图片描述
+备注：
+如果使用方法1无效，可以试一下方法2。
+本人项目就是使用方1无效，使用方法2有效解决问题。</div><p class="readmore"><a href="/2020/10/23/Android-Studio-%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98clean-project%E4%B8%8Einvalidate-caches%E2%80%94%E2%80%94%E8%A7%A3%E5%86%B3%E9%A1%B9%E7%9B%AE%E4%B8%80%E7%89%87%E6%8A%A5%E7%BA%A2%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E7%BC%96%E8%AF%91/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-R-11-app-targetSdkVersion30%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%E4%B9%8B%E2%80%94%E2%80%94%E7%9B%B8%E5%86%8C%E9%80%89%E6%8B%A9%E5%9B%BE%E7%89%87%E9%BB%91%E5%B1%8F%E7%8E%B0%E8%B1%A1/">Android R(11) app targetSdkVersion30遇到的那些坑之——相册选择图片黑屏现象</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">问题：
 当开发版本targetSdkVersion提升到30时：
 
- 1. 在android10手机上安装app后，调用相册选择图片时，相册会出现图片全部都是黑屏现象，选择后的图片也是黑屏图片，...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+ 1. 在android10手机上安装app后，调用相册选择图片时，相册会出现图片全部都是黑屏现象，选择后的图片也是黑屏图片，而且无法获取图片的小大；
+ 2. 在android10以下的手机安装app，可以正常选择图片；
 
-  
-    
+解决：
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/" title="手机Web前端调试页面之——Chrome DevTools（谷歌浏览器）的模拟手机调试" >手机Web前端调试页面之——Chrome DevTools（谷歌浏览器）的模拟手机调试</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">Chrome DevTools（谷歌浏览器）的模拟手机调试
+把targetSdkVersion降到28，在android10手机上则可以正常选择相册的图片。
+目前（2020.08.03）没有找到targetSdkVersion30的适配方法，如有大神有解决方法，望请告知，不甚感激。
+
+备注：
+
+ 1. 当项目targetSdkVersion为28时，在an</div><p class="readmore"><a href="/2020/10/23/Android-R-11-app-targetSdkVersion30%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%E4%B9%8B%E2%80%94%E2%80%94%E7%9B%B8%E5%86%8C%E9%80%89%E6%8B%A9%E5%9B%BE%E7%89%87%E9%BB%91%E5%B1%8F%E7%8E%B0%E8%B1%A1/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/">手机Web前端调试页面之——Chrome DevTools（谷歌浏览器）的模拟手机调试</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Chrome DevTools（谷歌浏览器）的模拟手机调试
 前言
 
 在客户端开发中，由于使用手机app加载webview页面，客户端与前端经常会出现数据交互情况；
-但是在手机中无法调试看到前端代...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
+但是在手机中无法调试看到前端代码的步骤流程，有时候会导致数据交互失败查找问题比较麻烦；因此可以引入Chrome DevTools（谷歌浏览器）的模拟手机调试。
 
-  
-    
+ 1. Chrome DevTools（谷歌浏览器）的模拟手机调试
+ 2. Chrome DevTools远程调试Android和iOS页面
 
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/" title="AndroidQ(10)分区存储完美适配" >AndroidQ(10)分区存储完美适配</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">前言
+阅读
+
+ 1. Chrome DevTools模拟手机调试
+
+直接使用谷歌浏览器的开发者工具，可以参照下图，也可以使用快捷键F12</div><p class="readmore"><a href="/2020/10/23/%E6%89%8B%E6%9C%BAWeb%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%E4%B9%8B%E2%80%94%E2%80%94Chrome-DevTools%EF%BC%88%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%89%E7%9A%84%E6%A8%A1%E6%8B%9F%E6%89%8B%E6%9C%BA%E8%B0%83%E8%AF%95/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/">AndroidQ(10)分区存储完美适配</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
 
  * Android Q文件存储机制修改成了沙盒模式
  * APP只能访问自己目录下的文件和公共媒体文件
@@ -458,187 +164,8 @@ WebView.setWebC...</p>
 
 背景
 
- * 存储权...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2020/10/23/Java%E4%B8%ADtry-catch-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2020/10/23/Java%E4%B8%ADtry-catch-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE/" title="Java中try()catch{}的使用方法：自动资源释放" >Java中try()catch{}的使用方法：自动资源释放</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">今天撸代码的时候发现了一段这样的代码
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-
-
-try(
-           Connection conn=DriverManager.getConne...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>October 23, 2020</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-</section>
-    <section class="paginator">
-  
-    <a class="extend prev" rel="prev" href="/page/8/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">&gt;</a>
-  
-</section>
-  </div>
-</main>
-  
-
-<footer class="footer">
-  <div class="footer-social"><a 
-        href="tencent://message/?Menu=yes&uin=894519210 "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#12B7F5'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconQQ "></i>
-      </a><a 
-        href="javascript:; "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#09BB07'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconwechat-fill "></i>
-      </a><a 
-        href="https://www.instagram.com/izhaoo/ "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#DA2E76'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconinstagram "></i>
-      </a><a 
-        href="https://github.com/zhaoo "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#9f7be1'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  icongithub-fill "></i>
-      </a><a 
-        href="mailto:izhaoo@163.com "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color=#FF3B00" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconmail"></i>
-      </a></div>
-  
-    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-  
-</footer>
-  
-      <div class="fab fab-plus">
-    <i class="iconfont iconplus"></i>
-  </div>
-  
-  
-  
-  <div class="fab fab-up">
-    <i class="iconfont iconcaret-up"></i>
-  </div>
-  
-  
-  
-    
-<script src="/js/color-mode.js"></script>
-
-  
-  
-</body>
-
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-
-
-
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-
-
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-
-
-
-
-<script src="/js/utils.js"></script>
-<script src="/js/script.js"></script>
-
-
-
-
-
-
-
-  <script>
-    (function () {
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      } else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
+ * 存储权限
+   Android Q仍然使用READ_EXTERNAL_STORAGE和WRITE_EXTERNAL_STORAGE作为存储相关运行时权限，但现在即使获取了这些权限，访问外部存储也受到了限制，只能访问自身目录下的文件和公共内体文件。
+ * 外部存储结构划分
+   1、公有目录：Downloads、Documents、Pictures 、DCIM、Movies、Music、Ringtones等
+ </div><p class="readmore"><a href="/2020/10/23/AndroidQ-10-%E5%88%86%E5%8C%BA%E5%AD%98%E5%82%A8%E5%AE%8C%E7%BE%8E%E9%80%82%E9%85%8D/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/8/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/05/13/Android%E8%87%AA%E5%AE%9A%E4%B9%89View%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7attrs-xml%E7%9A%84%E4%BD%BF%E7%94%A8/">Android自定义View——自定义属性attrs.xml的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/30/Android%E6%8A%A5%E9%94%99%E2%80%94%E2%80%94this-Activity-already-has-an-action-bar-supplied-by-the-window-decor-Do-not-request-Wind/">Android报错——this Activity already has an action bar supplied by the window decor. Do not request Wind</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/24/SVN%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0GIT%E5%B9%B6%E4%BF%9D%E7%95%99commit%E8%AE%B0%E5%BD%95-%E8%8E%B7%E5%8F%96Git%E6%8F%90%E4%BA%A4%E8%AE%A1%E6%95%B0/">SVN项目迁移到GIT并保留commit记录 && 获取Git提交计数</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/11/Windows%E5%92%8CMac%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84MD5%EF%BD%9C%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8E%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E4%B8%80%E8%87%B4%E6%80%A7/">Windows和Mac命令行查看文件的MD5｜一般用于校验文件一致性</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/Android%E4%B8%AD%E4%B8%80%E4%B8%AAapp%E5%90%AF%E5%8A%A8%E5%8F%A6%E4%B8%80%E4%B8%AAapp%EF%BD%9C%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80app/">Android中一个app启动另一个app｜从浏览器打开app</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/12/13/Android-Intent%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8getIntent-%E6%8E%A5%E6%94%B6%E4%B8%8D%E5%88%B0%EF%BC%8CIntent%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E4%B8%8EActivity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8FsingleTask%E7%9A%84%E5%85%B3%E7%B3%BB/">Android Intent传递数据使用getIntent()接收不到，Intent传递数据与Activity启动模式singleTask的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/24/Android-%E8%8E%B7%E5%8F%96%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%88%E5%8F%AF%E8%A7%86%E6%8E%A7%E4%BB%B6%E3%80%81%E5%B8%83%E5%B1%80%EF%BC%89-%E8%8E%B7%E5%8F%96%E6%8E%A7%E4%BB%B6%E6%88%AA%E5%9B%BE%EF%BC%88%E4%B8%8D%E5%8F%AF%E8%A7%86%E6%8E%A7%E4%BB%B6%E3%80%81%E5%B8%83%E5%B1%80%EF%BC%89/">Android 获取屏幕截图（可视控件、布局） 获取控件截图（不可视控件、布局）</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/24/Android-view%E8%BD%ACBitmap%EF%BC%88%E5%B0%86%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%E8%BD%AC%E6%88%90Bitmap%EF%BC%89-Bitmap%E4%BF%9D%E5%AD%98%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9B%B8%E5%86%8C/">Android view转Bitmap（将布局文件转成Bitmap）&& Bitmap保存到本地相册</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/30/Android%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB%E5%88%B0-AndroidX/">Android项目迁移到 AndroidX</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/28/Android%E8%BD%AF%E9%94%AE%E7%9B%98%E2%80%94%E2%80%94InputMethodManager%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%98%BE%E7%A4%BA%E3%80%81%E9%9A%90%E8%97%8F%E8%BD%AF%E9%94%AE%E7%9B%98/">Android软键盘——InputMethodManager使用：显示、隐藏软键盘</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>
