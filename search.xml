@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Java java.lang.ArithmeticException: / by zero问题解决</title>
+      <link href="2022/05/13/Java-java-lang-ArithmeticException-by-zero%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+      <url>2022/05/13/Java-java-lang-ArithmeticException-by-zero%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><blockquote><p>java.lang.ArithmeticException: / by zero</p></blockquote><h2 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h2><blockquote><p>使用0作为除数导致了报错；只需要找到代码对应报错行数，检查除数的数值处理，使其不能为0即可。</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android自定义View——自定义属性attrs.xml的使用</title>
       <link href="2022/05/13/Android%E8%87%AA%E5%AE%9A%E4%B9%89View%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7attrs-xml%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>2022/05/13/Android%E8%87%AA%E5%AE%9A%E4%B9%89View%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7attrs-xml%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
