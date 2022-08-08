@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>GIT开发学习——git 合并代码出现merging dev-xxxx 无法提交拉代码解决</title>
+      <link href="2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0merging-dev-xxxx-%E6%97%A0%E6%B3%95%E6%8F%90%E4%BA%A4%E6%8B%89%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/"/>
+      <url>2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0merging-dev-xxxx-%E6%97%A0%E6%B3%95%E6%8F%90%E4%BA%A4%E6%8B%89%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/</url>
+      
+        <content type="html"><![CDATA[<h4 id="出现merging的原因"><a href="#出现merging的原因" class="headerlink" title="出现merging的原因:"></a>出现merging的原因:</h4><blockquote><p>当你合并代码合并到一半时候取消，出现这个是合并代码的一个状态</p></blockquote><h4 id="解决办法：使用以下两个命令"><a href="#解决办法：使用以下两个命令" class="headerlink" title="解决办法：使用以下两个命令"></a>解决办法：使用以下两个命令</h4><p><strong>1.将代码「回退」到提交代码的当前状态</strong></p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard head </span><br></pre></td></tr></table></figure><p><strong>2.「提交」当前分支代码</strong></p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push oringin dev xxx</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GIT开发学习——fatal: bad revision &#39;7450ad67&#39;</title>
       <link href="2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94fatal-bad-revision-7450ad67/"/>
       <url>2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94fatal-bad-revision-7450ad67/</url>
