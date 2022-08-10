@@ -1,4 +1,84 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2020/10/23/Mac-%E4%B8%AD-Android-Studio%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E8%B0%83%E6%95%B4%E6%96%B9%E6%B3%95/">Mac 中 Android Studio使用内存调整方法</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Mac下调整Android Studio可使用内存大小
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="生如夏花 汝予可荆"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.5"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.5"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>丰囖囖的博客 | 嘴角上扬的时候任何事物都变得可爱起来 ​</title><meta name="generator" content="Hexo 5.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">丰囖囖的博客</h1><a id="logo" href="/.">丰囖囖的博客</a><p class="description">嘴角上扬的时候任何事物都变得可爱起来 ​</p></div><div id="nav-menu"></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="search"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/">Android 自定义dialog学习之——自定义一个提示框</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">前言
+
+最近项目中觉的Android系统的dialog样式太丑，确实也不太好看，就打算自定义一个dialog来使用。
+
+自定义dialog实例demo
+
+1、布局
+dialog_alert
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+</div><p class="readmore"><a href="/2020/10/23/Android-%E8%87%AA%E5%AE%9A%E4%B9%89dialog%E5%AD%A6%E4%B9%A0%E4%B9%8B%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%8F%90%E7%A4%BA%E6%A1%86/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Mac-%E4%B8%AD-Android-Studio%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E8%B0%83%E6%95%B4%E6%96%B9%E6%B3%95/">Mac 中 Android Studio使用内存调整方法</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Mac下调整Android Studio可使用内存大小
 
 前言
 
@@ -259,34 +339,4 @@ repositories {
 -keep public class * implements com.bumptech.glide.module.GlideMod</div><p class="readmore"><a href="/2020/10/23/Android-Glide%E9%9B%86%E6%88%90%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E2%80%94%E2%80%94Glide-3-x/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/%E4%BB%A3%E7%A0%81%E5%AF%B9%E6%AF%94%E5%B7%A5%E5%85%B7%E3%80%8Cfor-Mac%E3%80%8D/">代码对比工具「for Mac」</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">代码对比工具
 
 链接: https://pan.baidu.com/s/1rFeRV_r4FJhhJpeN5X0ojw
-密码: vgnp</div><p class="readmore"><a href="/2020/10/23/%E4%BB%A3%E7%A0%81%E5%AF%B9%E6%AF%94%E5%B7%A5%E5%85%B7%E3%80%8Cfor-Mac%E3%80%8D/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2020/10/23/Android-dialog%E5%B1%9E%E6%80%A7%E2%80%94%E2%80%94%E7%82%B9%E5%87%BB%E3%80%8C%E5%B1%8F%E5%B9%95%E3%80%8D%E6%88%96%E8%80%85%E3%80%8C%E8%BF%94%E5%9B%9E%E9%94%AE%E3%80%8D%E4%B8%8D%E6%B6%88%E5%A4%B1/">Android dialog属性——点击「屏幕」或者「返回键」不消失</a></h2><div class="post-meta"><p><span class="date">2020-10-23</span></p></div><div class="post-content">Dialog属性设置
-
-在dialog.show();之前加：
-
-1
-2
-
-
-dialog.setCanceledOnTouchOutside(false);//点击屏幕 dialog不消失
-dialog.setCancelable(false);//点击屏幕或返回按钮 dialog不消失  
-
-
-
-
-
-屏蔽返回键,按返回键时不销毁当前activity
-
-重写onKeyDown方法
-
-1
-2
-3
-4
-5
-6
-7
-
-
-@Override
-public boolean onKeyDown(int keyCode, KeyEvent event) {
-    if (keyCode == KeyEv</div><p class="readmore"><a href="/2020/10/23/Android-dialog%E5%B1%9E%E6%80%A7%E2%80%94%E2%80%94%E7%82%B9%E5%87%BB%E3%80%8C%E5%B1%8F%E5%B9%95%E3%80%8D%E6%88%96%E8%80%85%E3%80%8C%E8%BF%94%E5%9B%9E%E9%94%AE%E3%80%8D%E4%B8%8D%E6%B6%88%E5%A4%B1/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/8/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-reset-current-branch-to-here/">GIT开发学习——git reset current branch to here</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8git-stash%E6%9A%82%E5%AD%98%E4%BB%A3%E7%A0%81/">GIT开发学习——使用git stash暂存代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0merging-dev-xxxx-%E6%97%A0%E6%B3%95%E6%8F%90%E4%BA%A4%E6%8B%89%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/">GIT开发学习——git 合并代码出现merging dev-xxxx 无法提交拉代码解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94fatal-bad-revision-7450ad67/">GIT开发学习——fatal: bad revision '7450ad67'</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-pull%E5%A4%B1%E8%B4%A5-Invocation-failed-Unexpected-end-of-file-from-server/">GIT开发学习——git pull失败 Invocation failed Unexpected end of file from server</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94IDEA-Smart-Checkout%E5%92%8CForce-Checkout%E5%8C%BA%E5%88%AB/">GIT开发学习——IDEA Smart Checkout和Force Checkout区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAtag%E6%A0%87%E7%AD%BE%E5%91%BD%E4%BB%A4/">GIT开发学习——创建tag标签命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/07/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">GIT开发学习——合并分支的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/06/21/Android%E4%B9%8BCardView/">Android之CardView</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/13/java-lang-IllegalStateException-Fragement-no-longer-exists-for-key-f0-index-0/">java.lang.IllegalStateException: Fragement no longer exists for key f0: index 0</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>
+密码: vgnp</div><p class="readmore"><a href="/2020/10/23/%E4%BB%A3%E7%A0%81%E5%AF%B9%E6%AF%94%E5%B7%A5%E5%85%B7%E3%80%8Cfor-Mac%E3%80%8D/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/8/">Previous</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/">Next</a></nav></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/Android-%E6%A0%A1%E9%AA%8C%E6%89%8B%E6%9C%BA%E5%8F%B7%E2%80%94%E2%80%94%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Android 校验手机号——正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-reset-current-branch-to-here/">GIT开发学习——git reset current branch to here</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8git-stash%E6%9A%82%E5%AD%98%E4%BB%A3%E7%A0%81/">GIT开发学习——使用git stash暂存代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0merging-dev-xxxx-%E6%97%A0%E6%B3%95%E6%8F%90%E4%BA%A4%E6%8B%89%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/">GIT开发学习——git 合并代码出现merging dev-xxxx 无法提交拉代码解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/08/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94fatal-bad-revision-7450ad67/">GIT开发学习——fatal: bad revision '7450ad67'</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94git-pull%E5%A4%B1%E8%B4%A5-Invocation-failed-Unexpected-end-of-file-from-server/">GIT开发学习——git pull失败 Invocation failed Unexpected end of file from server</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94IDEA-Smart-Checkout%E5%92%8CForce-Checkout%E5%8C%BA%E5%88%AB/">GIT开发学习——IDEA Smart Checkout和Force Checkout区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/12/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%88%9B%E5%BB%BAtag%E6%A0%87%E7%AD%BE%E5%91%BD%E4%BB%A4/">GIT开发学习——创建tag标签命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/07/GIT%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">GIT开发学习——合并分支的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/06/21/Android%E4%B9%8BCardView/">Android之CardView</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 15px;">Android Studio</a> <a href="/tags/android-protectionLevel/" style="font-size: 15px;">android:protectionLevel</a> <a href="/tags/Android-Webview/" style="font-size: 15px;">Android Webview</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">53</span></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Site Map</a> |  <a href="/atom.xml">Subscribe to this site</a> |  <a href="/about/">Contact the blogger</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fenglolo.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.5"></script><script type="text/javascript" src="/js/totop.js?v=2.0.5" async></script></body></html>
